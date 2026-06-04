@@ -1017,21 +1017,21 @@
       <div class="form-row">
         <div class="form-group">
           <label>Student Name *</label>
-          <input type="text" placeholder="Enter full name">
+          <input id="f-student" type="text" placeholder="Enter full name">
         </div>
         <div class="form-group">
           <label>Parent/Guardian Name *</label>
-          <input type="text" placeholder="Enter name">
+          <input id="f-parent" type="text" placeholder="Enter name">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Mobile Number *</label>
-          <input type="tel" placeholder="+91 XXXXX XXXXX">
+          <input id="f-mobile" type="tel" placeholder="+91 XXXXX XXXXX">
         </div>
         <div class="form-group">
           <label>Interested Class *</label>
-          <select>
+          <select id="f-class">
             <option value="">Select Class</option>
             <option>Class 8th</option>
             <option>Class 9th</option>
@@ -1045,9 +1045,9 @@
       </div>
       <div class="form-group">
         <label>Message / Query (Optional)</label>
-        <textarea placeholder="Any specific requirements or questions..."></textarea>
+        <textarea id="f-msg" placeholder="Any specific requirements or questions..."></textarea>
       </div>
-      <button class="btn-form" onclick="handleSubmit(this)">Submit Enquiry →</button>
+      <button class="btn-form" onclick="handleSubmit(this)">Submit Enquiry → WhatsApp 📲</button>
     </div>
   </div>
 </section>
@@ -1099,17 +1099,63 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => io.observe(el));
 
-  // Form submit
+  // Form submit → WhatsApp
   function handleSubmit(btn) {
-    btn.textContent = '✅ Enquiry Submitted!';
+    const student = document.getElementById('f-student').value.trim();
+    const parent  = document.getElementById('f-parent').value.trim();
+    const mobile  = document.getElementById('f-mobile').value.trim();
+    const cls     = document.getElementById('f-class').value.trim();
+    const msg     = document.getElementById('f-msg').value.trim();
+
+    if(!student){ alert('Please enter Student Name'); return; }
+    if(!parent){  alert('Please enter Parent/Guardian Name'); return; }
+    if(!mobile){  alert('Please enter Mobile Number'); return; }
+    if(!cls){     alert('Please select Interested Class'); return; }
+
+    const now = new Date().toLocaleString('en-IN', {timeZone:'Asia/Kolkata'});
+
+    const text =
+      `🎓 *New Admission Enquiry*
+` +
+      `━━━━━━━━━━━━━━━━━━━━
+` +
+      `👦 *Student Name:* ${student}
+` +
+      `👨‍👩‍👦 *Parent/Guardian:* ${parent}
+` +
+      `📞 *Mobile Number:* ${mobile}
+` +
+      `📚 *Interested Class:* ${cls}
+` +
+      (msg ? `💬 *Message:* ${msg}
+` : '') +
+      `━━━━━━━━━━━━━━━━━━━━
+` +
+      `🕐 *Submitted:* ${now}
+` +
+      `📍 *Source:* Genius Mind Classes Website`;
+
+    const waNumber = '919595194355';
+    const waURL = `https://wa.me/${waNumber}?text=${encodeURIComponent(text)}`;
+
+    btn.textContent = '✅ Opening WhatsApp...';
     btn.style.background = '#22c55e';
     btn.style.color = '#fff';
     btn.disabled = true;
+
+    window.open(waURL, '_blank');
+
     setTimeout(() => {
-      btn.textContent = 'Submit Enquiry →';
+      btn.innerHTML = 'Submit Enquiry → WhatsApp 📲';
       btn.style.background = '';
       btn.style.color = '';
       btn.disabled = false;
+      // Clear form
+      document.getElementById('f-student').value = '';
+      document.getElementById('f-parent').value = '';
+      document.getElementById('f-mobile').value = '';
+      document.getElementById('f-class').value = '';
+      document.getElementById('f-msg').value = '';
     }, 3000);
   }
 
