@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genius Mind Classes — Elite Coaching for 8th–12th</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0A0E1A;
+    --deep: #0D1526;
+    --card: #111827;
+    --gold: #F5A623;
+    --gold2: #FFD166;
+    --accent: #3B82F6;
+    --accent2: #06B6D4;
+    --white: #F9FAFB;
+    --muted: #9CA3AF;
+    --border: rgba(245,166,35,0.15);
+    --glow: rgba(245,166,35,0.08);
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:100;
+    display: flex; align-items:center; justify-content:space-between;
+    padding: 1rem 5%;
+    background: rgba(10,14,26,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight:900;
+    color: var(--white);
+    letter-spacing:-0.5px;
+  }
+  .logo span { color: var(--gold); }
+  .nav-links { display:flex; gap:2rem; list-style:none; }
+  .nav-links a {
+    color: var(--muted); text-decoration:none;
+    font-size:0.875rem; font-weight:500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--navy);
+    padding: 0.55rem 1.4rem; border-radius:6px;
+    font-weight:700; font-size:0.875rem;
+    text-decoration:none; transition: opacity 0.2s;
+    white-space:nowrap;
+  }
+  .nav-cta:hover { opacity:0.85; }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+  .hamburger span { display:block; width:22px; height:2px; background:var(--white); border-radius:2px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 5% 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:'';
+    position:absolute; inset:0;
+    background: radial-gradient(ellipse 60% 60% at 65% 50%, rgba(59,130,246,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 50% at 30% 80%, rgba(245,166,35,0.06) 0%, transparent 70%);
+  }
+  .hero-grid-bg {
+    position:absolute; inset:0; opacity:0.04;
+    background-image: linear-gradient(var(--white) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--white) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:0.5rem;
+    background: rgba(245,166,35,0.1); border:1px solid rgba(245,166,35,0.3);
+    color: var(--gold); padding:0.35rem 1rem; border-radius:100px;
+    font-size:0.78rem; font-weight:600; letter-spacing:0.5px;
+    margin-bottom:1.5rem;
+    animation: fadeUp 0.6s ease forwards;
+  }
+  .badge-dot {
+    width:7px; height:7px; border-radius:50%;
+    background:var(--gold);
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:0.5;transform:scale(1.4)}
+  }
+  .hero-content { position:relative; z-index:1; }
+  .hero h1 {
+    font-family:'Playfair Display',serif;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight:900; line-height:1.1;
+    margin-bottom:1.5rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 em {
+    font-style:italic; color:var(--gold);
+    display:block;
+  }
+  .hero p {
+    color:var(--muted); font-size:1.05rem; line-height:1.7;
+    max-width:480px; margin-bottom:2.5rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-ctas {
+    display:flex; gap:1rem; flex-wrap:wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--gold); color:var(--navy);
+    padding:0.85rem 2rem; border-radius:8px;
+    font-weight:700; font-size:1rem;
+    text-decoration:none; display:inline-flex;
+    align-items:center; gap:0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(245,166,35,0.3);
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 0 40px rgba(245,166,35,0.45); }
+  .btn-outline {
+    border:1.5px solid rgba(255,255,255,0.2); color:var(--white);
+    padding:0.85rem 2rem; border-radius:8px;
+    font-weight:600; font-size:1rem;
+    text-decoration:none; transition:0.2s;
+  }
+  .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+
+  .hero-stats {
+    display:flex; gap:2.5rem; margin-top:3rem; flex-wrap:wrap;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat { }
+  .stat-num {
+    font-family:'Space Mono', monospace;
+    font-size:1.8rem; font-weight:700; color:var(--gold);
+    line-height:1;
+  }
+  .stat-label { color:var(--muted); font-size:0.8rem; margin-top:0.3rem; }
+
+  /* Hero Right — Dummy Classroom Image */
+  .hero-visual {
+    position:relative; z-index:1;
+    display:flex; justify-content:center; align-items:center;
+    animation: fadeRight 0.8s 0.2s ease both;
+  }
+  .classroom-card {
+    position:relative;
+    width:100%; max-width:480px;
+    border-radius:20px; overflow:hidden;
+    border:1px solid var(--border);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 60px rgba(59,130,246,0.1);
+  }
+  .classroom-img {
+    width:100%; aspect-ratio:4/3;
+    background: linear-gradient(135deg, #1a2640 0%, #0d1a30 50%, #162035 100%);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:1rem; padding:2rem;
+    position:relative; overflow:hidden;
+  }
+  .classroom-img::before {
+    content:'';
+    position:absolute; top:-20%; left:-10%;
+    width:60%; height:60%;
+    background: radial-gradient(circle, rgba(59,130,246,0.15), transparent 70%);
+  }
+  .classroom-icon {
+    font-size:4rem; filter:drop-shadow(0 0 20px rgba(59,130,246,0.5));
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .classroom-img p {
+    color: rgba(255,255,255,0.5); font-size:0.85rem;
+    text-align:center; font-style:italic; max-width:220px;
+  }
+  .classroom-overlay {
+    position:absolute; bottom:0; left:0; right:0;
+    background: linear-gradient(to top, rgba(10,14,26,0.95), transparent);
+    padding:1.5rem;
+  }
+  .admission-tag {
+    display:inline-block;
+    background: var(--gold); color:var(--navy);
+    font-size:0.75rem; font-weight:700; padding:0.3rem 0.8rem;
+    border-radius:4px; letter-spacing:0.5px;
+    animation: pulse2 1.5s infinite;
+  }
+  @keyframes pulse2{0%,100%{box-shadow:0 0 0 0 rgba(245,166,35,0.4)}50%{box-shadow:0 0 0 8px rgba(245,166,35,0)}}
+  .floating-badge {
+    position:absolute; top:-14px; right:20px;
+    background:var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:0.8rem 1.2rem;
+    display:flex; align-items:center; gap:0.7rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+  .fb-icon { font-size:1.4rem; }
+  .fb-text strong { display:block; font-size:0.85rem; color:var(--white); }
+  .fb-text span { font-size:0.72rem; color:var(--muted); }
+
+  /* ── ADMISSION BANNER ── */
+  .admission-banner {
+    background: linear-gradient(90deg, var(--gold) 0%, #e8911a 100%);
+    padding:1rem 5%;
+    display:flex; align-items:center; justify-content:center; gap:1.5rem;
+    flex-wrap:wrap;
+  }
+  .admission-banner p {
+    color:var(--navy); font-weight:700; font-size:1rem;
+    display:flex; align-items:center; gap:0.5rem;
+  }
+  .admission-banner a {
+    background:var(--navy); color:var(--gold);
+    padding:0.45rem 1.2rem; border-radius:5px;
+    font-weight:700; font-size:0.875rem; text-decoration:none;
+    transition:opacity 0.2s;
+  }
+  .admission-banner a:hover { opacity:0.85; }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 5%; }
+  .section-tag {
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem; color:var(--gold);
+    letter-spacing:2px; text-transform:uppercase;
+    margin-bottom:0.8rem;
+  }
+  .section-title {
+    font-family:'Playfair Display',serif;
+    font-size:clamp(2rem,4vw,3rem); font-weight:900;
+    line-height:1.1; margin-bottom:1rem;
+  }
+  .section-sub {
+    color:var(--muted); font-size:1rem; line-height:1.7;
+    max-width:540px;
+  }
+  .section-header { margin-bottom:3.5rem; }
+  .text-gold { color:var(--gold); }
+
+  /* ── PROGRAMS ── */
+  .programs-grid {
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:1.5rem;
+  }
+  .program-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:16px; padding:2rem;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    position:relative; overflow:hidden;
+  }
+  .program-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,var(--gold),transparent);
+    opacity:0; transition:opacity 0.2s;
+  }
+  .program-card:hover { transform:translateY(-4px); border-color:rgba(245,166,35,0.3); box-shadow:0 20px 50px rgba(0,0,0,0.3); }
+  .program-card:hover::before { opacity:1; }
+  .program-card.featured {
+    border-color: rgba(245,166,35,0.4);
+    background: linear-gradient(135deg, #1a1f2e, #111827);
+    box-shadow: 0 0 40px rgba(245,166,35,0.08);
+  }
+  .program-card.featured::before { opacity:1; }
+  .featured-tag {
+    position:absolute; top:1rem; right:1rem;
+    background:var(--gold); color:var(--navy);
+    font-size:0.65rem; font-weight:700; padding:0.2rem 0.6rem;
+    border-radius:4px; letter-spacing:0.5px;
+  }
+  .program-icon { font-size:2.2rem; margin-bottom:1rem; display:block; }
+  .program-class {
+    font-family:'Space Mono',monospace;
+    font-size:0.7rem; color:var(--gold);
+    letter-spacing:1px; text-transform:uppercase; margin-bottom:0.5rem;
+  }
+  .program-card h3 { font-size:1.25rem; font-weight:700; margin-bottom:0.75rem; }
+  .program-card p { color:var(--muted); font-size:0.875rem; line-height:1.6; margin-bottom:1.5rem; }
+  .program-subjects {
+    display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:1.5rem;
+  }
+  .tag {
+    background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.2);
+    color:var(--accent2); font-size:0.7rem; padding:0.25rem 0.6rem;
+    border-radius:4px; font-weight:500;
+  }
+  .program-link {
+    color:var(--gold); font-size:0.875rem; font-weight:600;
+    text-decoration:none; display:inline-flex; align-items:center; gap:0.3rem;
+    transition:gap 0.2s;
+  }
+  .program-link:hover { gap:0.6rem; }
+
+  /* ── WHY US ── */
+  .why-grid {
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:4rem; align-items:center;
+  }
+  .why-features { display:flex; flex-direction:column; gap:1.5rem; }
+  .why-feature {
+    display:flex; gap:1rem; align-items:flex-start;
+    padding:1.25rem; border-radius:12px;
+    border:1px solid transparent;
+    transition:0.2s;
+    cursor:default;
+  }
+  .why-feature:hover {
+    background:var(--card);
+    border-color:var(--border);
+  }
+  .feature-icon-wrap {
+    width:48px; height:48px; border-radius:12px;
+    background:rgba(245,166,35,0.1); border:1px solid rgba(245,166,35,0.2);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.3rem; flex-shrink:0;
+  }
+  .why-feature h4 { font-size:1rem; font-weight:600; margin-bottom:0.3rem; }
+  .why-feature p { color:var(--muted); font-size:0.875rem; line-height:1.6; }
+  .why-visual {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:20px; padding:2rem;
+    display:flex; flex-direction:column; gap:1.5rem;
+  }
+  .results-title {
+    font-family:'Playfair Display',serif;
+    font-size:1.2rem; font-weight:700;
+    border-bottom:1px solid var(--border); padding-bottom:1rem;
+    margin-bottom:0.5rem;
+  }
+  .result-row {
+    display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  }
+  .result-info { display:flex; align-items:center; gap:0.75rem; }
+  .result-avatar {
+    width:38px; height:38px; border-radius:50%;
+    background:linear-gradient(135deg,#2a3a5c,#1e2d4a);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1rem; border:2px solid var(--border);
+  }
+  .result-name { font-size:0.875rem; font-weight:600; }
+  .result-class { font-size:0.72rem; color:var(--muted); }
+  .result-percent {
+    font-family:'Space Mono',monospace;
+    font-size:1.2rem; font-weight:700; color:var(--gold);
+  }
+  .result-bar-wrap {
+    height:4px; background:rgba(255,255,255,0.05); border-radius:2px; margin-top:0.3rem; width:100%;
+  }
+  .result-bar {
+    height:100%; border-radius:2px;
+    background:linear-gradient(90deg,var(--gold),var(--accent));
+  }
+
+  /* ── FACULTY ── */
+  .faculty-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:2rem;
+  }
+  .faculty-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:20px; overflow:hidden;
+    transition:transform 0.2s, box-shadow 0.2s;
+  }
+  .faculty-card:hover { transform:translateY(-5px); box-shadow:0 30px 60px rgba(0,0,0,0.4); }
+  .faculty-img {
+    aspect-ratio:1; background:linear-gradient(135deg,#1a2640,#0d1a30);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:0.75rem; position:relative; overflow:hidden;
+    border-bottom:1px solid var(--border);
+  }
+  .faculty-img::before {
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(circle at 50% 100%, rgba(59,130,246,0.15), transparent 70%);
+  }
+  .faculty-placeholder { font-size:3.5rem; filter:drop-shadow(0 0 20px rgba(59,130,246,0.4)); }
+  .faculty-img p { font-size:0.72rem; color:rgba(255,255,255,0.3); font-style:italic; }
+  .faculty-subject-badge {
+    position:absolute; top:1rem; left:1rem;
+    background:rgba(10,14,26,0.8); border:1px solid var(--border);
+    border-radius:6px; padding:0.3rem 0.7rem;
+    font-size:0.7rem; font-weight:700; color:var(--gold);
+    letter-spacing:0.5px;
+  }
+  .faculty-body { padding:1.5rem; }
+  .faculty-body h3 { font-size:1.1rem; font-weight:700; margin-bottom:0.25rem; }
+  .faculty-degree { font-size:0.78rem; color:var(--accent2); margin-bottom:0.75rem; font-weight:500; }
+  .faculty-body p { color:var(--muted); font-size:0.84rem; line-height:1.6; margin-bottom:1rem; }
+  .faculty-exp {
+    display:flex; align-items:center; gap:0.4rem;
+    font-size:0.78rem; color:var(--muted);
+    padding-top:0.75rem; border-top:1px solid var(--border);
+  }
+  .faculty-exp strong { color:var(--gold); }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background:var(--deep); }
+  .testimonials-grid {
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:1.5rem;
+  }
+  .testimonial-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:16px; padding:1.75rem;
+    position:relative;
+    transition:transform 0.2s;
+  }
+  .testimonial-card:hover { transform:translateY(-3px); }
+  .quote-mark {
+    font-family:'Playfair Display',serif;
+    font-size:5rem; line-height:0.5; color:var(--gold);
+    opacity:0.3; position:absolute; top:1rem; right:1.5rem;
+  }
+  .stars { color:var(--gold); font-size:0.9rem; margin-bottom:1rem; letter-spacing:2px; }
+  .testimonial-card p {
+    color:rgba(249,250,251,0.85); font-size:0.9rem; line-height:1.7;
+    margin-bottom:1.5rem; font-style:italic;
+  }
+  .testimonial-meta { display:flex; align-items:center; gap:0.75rem; }
+  .t-avatar {
+    width:42px; height:42px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; border:2px solid var(--border);
+    overflow:hidden; flex-shrink:0;
+    background:linear-gradient(135deg,#1e2d4a,#2a3a5c);
+  }
+  .t-avatar img { width:100%; height:100%; object-fit:cover; }
+  .t-name { font-size:0.875rem; font-weight:700; }
+  .t-detail { font-size:0.72rem; color:var(--gold); font-weight:500; }
+  .photo-placeholder {
+    font-size:0.65rem; color:rgba(255,255,255,0.2);
+    font-style:italic; margin-top:0.25rem;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: linear-gradient(135deg, #0d1526 0%, #091020 100%);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    text-align:center; position:relative; overflow:hidden;
+  }
+  .cta-section::before {
+    content:'';
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:600px; height:600px; border-radius:50%;
+    background: radial-gradient(circle, rgba(245,166,35,0.06), transparent 70%);
+  }
+  .cta-section .section-title { margin-bottom:1rem; }
+  .cta-section p {
+    color:var(--muted); max-width:500px; margin:0 auto 2.5rem;
+    line-height:1.7;
+  }
+  .cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+  .cta-note {
+    margin-top:1.5rem; font-size:0.8rem; color:var(--muted);
+  }
+
+  /* ── CONTACT ── */
+  .contact-wrapper {
+    display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;
+  }
+  .contact-info { display:flex; flex-direction:column; gap:1.5rem; }
+  .contact-item {
+    display:flex; gap:1rem; align-items:flex-start;
+    padding:1.25rem; background:var(--card);
+    border:1px solid var(--border); border-radius:12px;
+  }
+  .contact-icon {
+    font-size:1.5rem; width:44px; height:44px;
+    background:rgba(245,166,35,0.08); border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .contact-item h4 { font-size:0.875rem; font-weight:600; margin-bottom:0.25rem; }
+  .contact-item p { color:var(--muted); font-size:0.875rem; line-height:1.5; }
+  .contact-form {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:20px; padding:2rem;
+  }
+  .contact-form h3 {
+    font-family:'Playfair Display',serif;
+    font-size:1.4rem; margin-bottom:1.5rem;
+  }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+  .form-group { margin-bottom:1rem; }
+  .form-group label {
+    display:block; font-size:0.8rem; font-weight:600;
+    color:var(--muted); margin-bottom:0.4rem; letter-spacing:0.3px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width:100%; background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1); border-radius:8px;
+    padding:0.75rem 1rem; color:var(--white);
+    font-family:'DM Sans',sans-serif; font-size:0.9rem;
+    transition:border-color 0.2s;
+    outline:none;
+    -webkit-appearance:none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color:var(--gold);
+  }
+  .form-group select option { background:var(--card); }
+  .form-group textarea { resize:vertical; min-height:90px; }
+  .btn-form {
+    width:100%; background:var(--gold); color:var(--navy);
+    border:none; padding:0.9rem; border-radius:8px;
+    font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700;
+    cursor:pointer; transition:opacity 0.2s, transform 0.2s;
+  }
+  .btn-form:hover { opacity:0.88; transform:translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding:3rem 5% 2rem;
+    border-top:1px solid var(--border);
+  }
+  .footer-grid {
+    display:grid; grid-template-columns:2fr 1fr 1fr;
+    gap:3rem; margin-bottom:2.5rem;
+  }
+  .footer-brand h2 {
+    font-family:'Playfair Display',serif;
+    font-size:1.4rem; margin-bottom:0.75rem;
+  }
+  .footer-brand h2 span { color:var(--gold); }
+  .footer-brand p { color:var(--muted); font-size:0.875rem; line-height:1.7; max-width:280px; }
+  footer h4 { font-size:0.875rem; font-weight:700; margin-bottom:1rem; color:var(--white); }
+  footer ul { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+  footer ul a { color:var(--muted); text-decoration:none; font-size:0.875rem; transition:color 0.2s; }
+  footer ul a:hover { color:var(--gold); }
+  .footer-bottom {
+    display:flex; justify-content:space-between; align-items:center;
+    padding-top:1.5rem; border-top:1px solid var(--border);
+    font-size:0.8rem; color:var(--muted); flex-wrap:wrap; gap:0.5rem;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(30px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeRight {
+    from { opacity:0; transform:translateX(30px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity:0; transform:translateY(30px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* ── MOBILE ── */
+  @media (max-width:900px) {
+    .hero { grid-template-columns:1fr; padding-top:6rem; }
+    .hero-visual { display:none; }
+    .why-grid { grid-template-columns:1fr; }
+    .contact-wrapper { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+    .form-row { grid-template-columns:1fr; }
+  }
+  @media (max-width:640px) {
+    .nav-links { display:none; }
+    .hamburger { display:flex; }
+    .footer-grid { grid-template-columns:1fr; }
+    .hero-stats { gap:1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Genius Mind <span>Classes</span></div>
+  <ul class="nav-links">
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#faculty">Faculty</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Enroll Now →</a>
+  <div class="hamburger" onclick="this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ADMISSION BANNER -->
+<div class="admission-banner">
+  <p>🎓 Admissions Open 2024–25 — Limited Seats Available!</p>
+  <a href="#contact">Secure Your Seat →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Admissions Open 2024–25
+    </div>
+    <h1>
+      Where Potential Meets
+      <em>Purpose.</em>
+    </h1>
+    <p>Genius Mind Classes is a premier coaching institute dedicated to students from Class 8th to 12th — with a specialised focus on Science & Commerce streams for Board Exams and beyond.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Enroll Now &rarr;</a>
+      <a href="#programs" class="btn-outline">View Programs</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">95%+</div>
+        <div class="stat-label">Board Result Rate</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Students Coached</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Expert Faculty</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Years of Excellence</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="classroom-card">
+      <div class="classroom-img">
+        <div class="classroom-icon">🏫</div>
+        <p>[ Replace with Classroom Photo ]</p>
+      </div>
+      <div class="classroom-overlay">
+        <span class="admission-tag">⚡ ADMISSIONS OPEN</span>
+      </div>
+      <div class="floating-badge">
+        <div class="fb-icon">🏆</div>
+        <div class="fb-text">
+          <strong>Top Rankers</strong>
+          <span>Every Academic Year</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="section-header reveal">
+    <div class="section-tag">// Programs</div>
+    <h2 class="section-title">Courses We <span class="text-gold">Offer</span></h2>
+    <p class="section-sub">From building strong fundamentals to crushing board exams — we've got the right program for every student.</p>
+  </div>
+  <div class="programs-grid">
+    <div class="program-card reveal">
+      <span class="program-icon">📐</span>
+      <div class="program-class">Class 8th – 10th</div>
+      <h3>Foundation Program</h3>
+      <p>Build a rock-solid academic base with concept clarity, regular tests, and personalised guidance from our experienced faculty.</p>
+      <div class="program-subjects">
+        <span class="tag">Mathematics</span>
+        <span class="tag">Science</span>
+        <span class="tag">English</span>
+        <span class="tag">Social Studies</span>
+      </div>
+      <a href="#contact" class="program-link">Enquire Now →</a>
+    </div>
+    <div class="program-card featured reveal">
+      <div class="featured-tag">⭐ MAIN FOCUS</div>
+      <span class="program-icon">⚗️</span>
+      <div class="program-class">Class 11th – 12th</div>
+      <h3>Science Stream</h3>
+      <p>Intensive board exam preparation with subject specialists in Physics, Chemistry, Biology and Mathematics. HSC-focused.</p>
+      <div class="program-subjects">
+        <span class="tag">Physics</span>
+        <span class="tag">Chemistry</span>
+        <span class="tag">Mathematics</span>
+        <span class="tag">Biology</span>
+      </div>
+      <a href="#contact" class="program-link">Enquire Now →</a>
+    </div>
+    <div class="program-card featured reveal">
+      <div class="featured-tag">⭐ MAIN FOCUS</div>
+      <span class="program-icon">📊</span>
+      <div class="program-class">Class 11th – 12th</div>
+      <h3>Commerce Stream</h3>
+      <p>Comprehensive coaching for HSC Commerce students with in-depth focus on Accounts, Economics, and Business Studies.</p>
+      <div class="program-subjects">
+        <span class="tag">Accounts</span>
+        <span class="tag">Economics</span>
+        <span class="tag">Business Studies</span>
+        <span class="tag">Maths</span>
+      </div>
+      <a href="#contact" class="program-link">Enquire Now →</a>
+    </div>
+    <div class="program-card reveal">
+      <span class="program-icon">🎯</span>
+      <div class="program-class">Crash Course</div>
+      <h3>Board Exam Intensive</h3>
+      <p>Last-minute high-impact revision batches for 10th & 12th students — focused on high-weightage chapters and past papers.</p>
+      <div class="program-subjects">
+        <span class="tag">SSC Board</span>
+        <span class="tag">HSC Board</span>
+        <span class="tag">Revision</span>
+      </div>
+      <a href="#contact" class="program-link">Enquire Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="results" style="background:var(--deep);">
+  <div class="why-grid">
+    <div>
+      <div class="section-tag reveal">// Why Choose Us</div>
+      <h2 class="section-title reveal">The Genius Mind <span class="text-gold">Difference</span></h2>
+      <div class="why-features">
+        <div class="why-feature reveal">
+          <div class="feature-icon-wrap">🎓</div>
+          <div>
+            <h4>Expert & Dedicated Faculty</h4>
+            <p>4 subject specialists with 10+ years of combined teaching experience, focused on conceptual learning.</p>
+          </div>
+        </div>
+        <div class="why-feature reveal">
+          <div class="feature-icon-wrap">📋</div>
+          <div>
+            <h4>Regular Tests & Assessments</h4>
+            <p>Weekly tests, monthly mock exams, and detailed performance reports to track every student's progress.</p>
+          </div>
+        </div>
+        <div class="why-feature reveal">
+          <div class="feature-icon-wrap">🧑‍🤝‍🧑</div>
+          <div>
+            <h4>Small Batch Size</h4>
+            <p>Limited seats per batch ensure personalised attention and a focused learning environment for all students.</p>
+          </div>
+        </div>
+        <div class="why-feature reveal">
+          <div class="feature-icon-wrap">📞</div>
+          <div>
+            <h4>Parent–Faculty Connect</h4>
+            <p>Regular parent meetings and transparent progress updates to keep families aligned with student growth.</p>
+          </div>
+        </div>
+        <div class="why-feature reveal">
+          <div class="feature-icon-wrap">📚</div>
+          <div>
+            <h4>Study Material Provided</h4>
+            <p>Curated notes, practice sheets, and previous year question papers — all included in the program.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual reveal">
+      <div class="results-title">🏆 Student Results Snapshot</div>
+      <div class="result-row">
+        <div class="result-info">
+          <div class="result-avatar">👩‍🎓</div>
+          <div>
+            <div class="result-name">Priya Sharma</div>
+            <div class="result-class">HSC Science • 2024</div>
+            <div class="result-bar-wrap"><div class="result-bar" style="width:96%"></div></div>
+          </div>
+        </div>
+        <div class="result-percent">96%</div>
+      </div>
+      <div class="result-row">
+        <div class="result-info">
+          <div class="result-avatar">👨‍🎓</div>
+          <div>
+            <div class="result-name">Rahul Patil</div>
+            <div class="result-class">HSC Science • 2024</div>
+            <div class="result-bar-wrap"><div class="result-bar" style="width:93%"></div></div>
+          </div>
+        </div>
+        <div class="result-percent">93%</div>
+      </div>
+      <div class="result-row">
+        <div class="result-info">
+          <div class="result-avatar">👧</div>
+          <div>
+            <div class="result-name">Sneha Kulkarni</div>
+            <div class="result-class">SSC Board • 2024</div>
+            <div class="result-bar-wrap"><div class="result-bar" style="width:91%"></div></div>
+          </div>
+        </div>
+        <div class="result-percent">91%</div>
+      </div>
+      <div class="result-row">
+        <div class="result-info">
+          <div class="result-avatar">👦</div>
+          <div>
+            <div class="result-name">Arjun Desai</div>
+            <div class="result-class">HSC Commerce • 2024</div>
+            <div class="result-bar-wrap"><div class="result-bar" style="width:89%"></div></div>
+          </div>
+        </div>
+        <div class="result-percent">89%</div>
+      </div>
+      <div class="result-row">
+        <div class="result-info">
+          <div class="result-avatar">👩</div>
+          <div>
+            <div class="result-name">Aisha Khan</div>
+            <div class="result-class">HSC Science • 2024</div>
+            <div class="result-bar-wrap"><div class="result-bar" style="width:95%"></div></div>
+          </div>
+        </div>
+        <div class="result-percent">95%</div>
+      </div>
+      <p style="font-size:0.72rem;color:var(--muted);text-align:center;margin-top:0.5rem;font-style:italic;">📸 Add student photo with permission for each result card</p>
+    </div>
+  </div>
+</section>
+
+<!-- FACULTY -->
+<section id="faculty">
+  <div class="section-header reveal">
+    <div class="section-tag">// Our Faculty</div>
+    <h2 class="section-title">Meet Your <span class="text-gold">Mentors</span></h2>
+    <p class="section-sub">Passionate educators with deep subject expertise and a proven track record of producing top scorers.</p>
+  </div>
+  <div class="faculty-grid">
+
+    <div class="faculty-card reveal">
+      <div class="faculty-img">
+        <div class="faculty-placeholder">👨‍🔬</div>
+        <p>[ Faculty Photo ]</p>
+        <div class="faculty-subject-badge">PHYSICS</div>
+      </div>
+      <div class="faculty-body">
+        <h3>Mr. [Faculty Name]</h3>
+        <div class="faculty-degree">M.Sc. Physics • B.Ed.</div>
+        <p>A passionate Physics educator known for making complex concepts intuitive through real-world examples and problem-solving workshops.</p>
+        <div class="faculty-exp">⭐ <strong>8+ years</strong>&nbsp;experience &nbsp;·&nbsp; 11th & 12th specialist</div>
+      </div>
+    </div>
+
+    <div class="faculty-card reveal">
+      <div class="faculty-img">
+        <div class="faculty-placeholder">👩‍🔬</div>
+        <p>[ Faculty Photo ]</p>
+        <div class="faculty-subject-badge">CHEMISTRY</div>
+      </div>
+      <div class="faculty-body">
+        <h3>Ms. [Faculty Name]</h3>
+        <div class="faculty-degree">M.Sc. Chemistry • B.Ed.</div>
+        <p>Expert in organic and inorganic chemistry with a unique teaching style that simplifies reactions and helps students ace numericals.</p>
+        <div class="faculty-exp">⭐ <strong>7+ years</strong>&nbsp;experience &nbsp;·&nbsp; HSC board specialist</div>
+      </div>
+    </div>
+
+    <div class="faculty-card reveal">
+      <div class="faculty-img">
+        <div class="faculty-placeholder">👨‍💻</div>
+        <p>[ Faculty Photo ]</p>
+        <div class="faculty-subject-badge">MATHEMATICS</div>
+      </div>
+      <div class="faculty-body">
+        <h3>Mr. [Faculty Name]</h3>
+        <div class="faculty-degree">M.Sc. Mathematics • B.Ed.</div>
+        <p>Renowned for building strong mathematical foundations. Students consistently report significant improvement in problem-solving speed under his guidance.</p>
+        <div class="faculty-exp">⭐ <strong>10+ years</strong>&nbsp;experience &nbsp;·&nbsp; 8th–12th all classes</div>
+      </div>
+    </div>
+
+    <div class="faculty-card reveal">
+      <div class="faculty-img">
+        <div class="faculty-placeholder">👩‍⚕️</div>
+        <p>[ Faculty Photo ]</p>
+        <div class="faculty-subject-badge">BIOLOGY</div>
+      </div>
+      <div class="faculty-body">
+        <h3>Ms. [Faculty Name]</h3>
+        <div class="faculty-degree">M.Sc. Zoology/Botany • B.Ed.</div>
+        <p>Makes Biology engaging with diagram-based learning, mnemonic techniques, and thorough NCERT coverage for board and competitive exams.</p>
+        <div class="faculty-exp">⭐ <strong>6+ years</strong>&nbsp;experience &nbsp;·&nbsp; 11th & 12th specialist</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header reveal">
+    <div class="section-tag">// Student Success Stories</div>
+    <h2 class="section-title">Heard it From <span class="text-gold">Our Students</span></h2>
+    <p class="section-sub">Real stories from students who transformed their academic journey with Genius Mind Classes.</p>
+  </div>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p>Joining Genius Mind Classes was the best decision of my academic life. The Physics teacher explains each concept so clearly — I went from 62% to 91% in just one year!</p>
+      <div class="testimonial-meta">
+        <div class="t-avatar">👩‍🎓</div>
+        <div>
+          <div class="t-name">[Student Name]</div>
+          <div class="t-detail">HSC Science 2024 — 91%</div>
+          <div class="photo-placeholder">📸 Add photo with permission</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p>The small batch size made a huge difference. Our teachers actually know each student personally and the regular mock tests helped me manage exam pressure brilliantly.</p>
+      <div class="testimonial-meta">
+        <div class="t-avatar">👨‍🎓</div>
+        <div>
+          <div class="t-name">[Student Name]</div>
+          <div class="t-detail">SSC Board 2024 — 89%</div>
+          <div class="photo-placeholder">📸 Add photo with permission</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card reveal">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p>Chemistry used to scare me but after joining GMC's 11th batch, it became my strongest subject. My teacher's notes are so well-structured — exam revision became effortless.</p>
+      <div class="testimonial-meta">
+        <div class="t-avatar">👧</div>
+        <div>
+          <div class="t-name">[Student Name]</div>
+          <div class="t-detail">HSC Science 2024 — 94%</div>
+          <div class="photo-placeholder">📸 Add photo with permission</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <div style="position:relative;z-index:1;text-align:center">
+    <div class="section-tag" style="display:inline-block;margin-bottom:1rem">// Admissions Open</div>
+    <h2 class="section-title reveal">Don't Miss This <span class="text-gold">Academic Year!</span></h2>
+    <p class="reveal">Seats are limited per batch to ensure quality attention. Enrol your child at Genius Mind Classes today and invest in a brighter future.</p>
+    <div class="cta-buttons reveal">
+      <a href="#contact" class="btn-primary">📋 Register Now →</a>
+      <a href="tel:+91XXXXXXXXXX" class="btn-outline">📞 Call Us Today</a>
+    </div>
+    <p class="cta-note reveal">✅ No registration fee &nbsp;·&nbsp; ✅ Demo class available &nbsp;·&nbsp; ✅ Flexible batch timings</p>
+  </div>
+</section>
+
+<!-- CONTACT / ENQUIRY -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="section-tag">// Contact Us</div>
+    <h2 class="section-title">Get in <span class="text-gold">Touch</span></h2>
+    <p class="section-sub">Fill out the form and our team will reach out within 24 hours. Walk-in visits are welcome too!</p>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <div class="contact-item reveal">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Address</h4>
+          <p>[Full Address, Village/Town Name, District, Maharashtra]</p>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Phone / WhatsApp</h4>
+          <p>+91 XXXXX XXXXX<br>Available Mon–Sat, 9am–7pm</p>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <h4>Batch Timings</h4>
+          <p>Morning Batch: 7:00 AM – 9:00 AM<br>Evening Batch: 5:00 PM – 8:00 PM</p>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <div class="contact-icon">📅</div>
+        <div>
+          <h4>Demo Class</h4>
+          <p>Free demo class available on request. Come visit us and experience the Genius Mind way!</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <h3>📋 Admission Enquiry Form</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Student Name *</label>
+          <input type="text" placeholder="Enter full name">
+        </div>
+        <div class="form-group">
+          <label>Parent/Guardian Name *</label>
+          <input type="text" placeholder="Enter name">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Mobile Number *</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX">
+        </div>
+        <div class="form-group">
+          <label>Interested Class *</label>
+          <select>
+            <option value="">Select Class</option>
+            <option>Class 8th</option>
+            <option>Class 9th</option>
+            <option>Class 10th (SSC)</option>
+            <option>Class 11th – Science</option>
+            <option>Class 11th – Commerce</option>
+            <option>Class 12th – Science</option>
+            <option>Class 12th – Commerce</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Message / Query (Optional)</label>
+        <textarea placeholder="Any specific requirements or questions..."></textarea>
+      </div>
+      <button class="btn-form" onclick="handleSubmit(this)">Submit Enquiry →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h2>Genius Mind <span>Classes</span></h2>
+      <p>Nurturing young minds and building tomorrow's leaders through quality education and dedicated coaching since [Year].</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#faculty">Faculty</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Admissions</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <ul>
+        <li><a href="#">Foundation (8th–10th)</a></li>
+        <li><a href="#">HSC Science</a></li>
+        <li><a href="#">HSC Commerce</a></li>
+        <li><a href="#">Board Crash Course</a></li>
+        <li><a href="#">Demo Class</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 Genius Mind Classes. All rights reserved.</span>
+    <span>📍 [Location, Maharashtra]</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  // Form submit
+  function handleSubmit(btn) {
+    btn.textContent = '✅ Enquiry Submitted!';
+    btn.style.background = '#22c55e';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Submit Enquiry →';
+      btn.style.background = '';
+      btn.style.color = '';
+      btn.disabled = false;
+    }, 3000);
+  }
+
+  // Mobile nav
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if(hamburger && navLinks){
+    hamburger.addEventListener('click',()=>{
+      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      navLinks.style.flexDirection = 'column';
+      navLinks.style.position = 'absolute';
+      navLinks.style.top = '70px'; navLinks.style.left = '0'; navLinks.style.right = '0';
+      navLinks.style.background = 'rgba(10,14,26,0.97)';
+      navLinks.style.padding = '1rem 2rem 1.5rem';
+      navLinks.style.borderBottom = '1px solid rgba(245,166,35,0.15)';
+    });
+  }
+</script>
+</body>
+</html>
