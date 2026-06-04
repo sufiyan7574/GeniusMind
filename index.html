@@ -63,7 +63,7 @@
     white-space:nowrap;
   }
   .nav-cta:hover { opacity:0.85; }
-  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+  .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; flex-shrink:0; }
   .hamburger span { display:block; width:22px; height:2px; background:var(--white); border-radius:2px; }
 
   /* ── HERO ── */
@@ -581,6 +581,7 @@
   }
   @media (max-width:640px) {
     .nav-links { display:none; }
+    .nav-cta { display:none; }
     .hamburger { display:flex; }
     .footer-grid { grid-template-columns:1fr; }
     .hero-stats { gap:1.5rem; }
@@ -607,7 +608,7 @@
 
 <!-- ADMISSION BANNER -->
 <div class="admission-banner">
-  <p>🎓 Admissions Open 2024–25 — Limited Seats Available!</p>
+  <p>🎓 Admissions Open 2026–27 — Limited Seats Available!</p>
   <a href="#contact">Secure Your Seat →</a>
 </div>
 
@@ -617,7 +618,7 @@
   <div class="hero-content">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      Admissions Open 2024–25
+      Admissions Open 2026–27
     </div>
     <h1>
       Where Potential Meets
@@ -1080,7 +1081,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2024 Genius Mind Classes. All rights reserved.</span>
+    <span>© 2026 Genius Mind Classes. All rights reserved.</span>
     <span>📍 [Location, Maharashtra]</span>
   </div>
 </footer>
@@ -1115,16 +1116,39 @@
   // Mobile nav
   const hamburger = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
+  let mobileOpen = false;
   if(hamburger && navLinks){
     hamburger.addEventListener('click',()=>{
-      navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-      navLinks.style.flexDirection = 'column';
-      navLinks.style.position = 'absolute';
-      navLinks.style.top = '70px'; navLinks.style.left = '0'; navLinks.style.right = '0';
-      navLinks.style.background = 'rgba(10,14,26,0.97)';
-      navLinks.style.padding = '1rem 2rem 1.5rem';
-      navLinks.style.borderBottom = '1px solid rgba(245,166,35,0.15)';
+      mobileOpen = !mobileOpen;
+      if(mobileOpen){
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'fixed';
+        navLinks.style.top = '65px';
+        navLinks.style.left = '0'; navLinks.style.right = '0';
+        navLinks.style.background = 'rgba(10,14,26,0.98)';
+        navLinks.style.padding = '1.5rem 2rem 2rem';
+        navLinks.style.borderBottom = '1px solid rgba(245,166,35,0.2)';
+        navLinks.style.gap = '1.2rem';
+        navLinks.style.zIndex = '99';
+        if(!document.getElementById('mobile-enroll')){
+          const btn = document.createElement('li');
+          btn.id = 'mobile-enroll';
+          btn.innerHTML = '<a href=\"#contact\" onclick=\"closeMobileNav()\" style=\"display:block;text-align:center;background:#F5A623;color:#0A0E1A;padding:0.8rem 1rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;margin-top:0.5rem;\">Enroll Now \u2192</a>';
+          navLinks.appendChild(btn);
+        }
+      } else {
+        navLinks.style.display = 'none';
+      }
     });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=>{
+      navLinks.style.display = 'none';
+      mobileOpen = false;
+    }));
+  }
+  function closeMobileNav(){
+    if(navLinks){ navLinks.style.display='none'; }
+    mobileOpen = false;
   }
 </script>
 </body>
