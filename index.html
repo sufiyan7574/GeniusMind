@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genius Mind Classes — Elite Coaching 8th–12th | Admissions Open 2026–27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#0A0E1A; --deep:#0D1526; --card:#111827;
+  --gold:#F5A623; --gold2:#FFD166;
+  --accent:#3B82F6; --accent2:#06B6D4;
+  --green:#22c55e;
+  --white:#F9FAFB; --muted:#9CA3AF;
+  --border:rgba(245,166,35,0.15);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--white);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(10,14,26,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.logo{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:900;color:var(--white);letter-spacing:-0.5px;white-space:nowrap;}
+.logo span{color:var(--gold);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--navy);padding:0.55rem 1.4rem;border-radius:6px;font-weight:700;font-size:0.875rem;text-decoration:none;transition:opacity 0.2s;white-space:nowrap;}
+.nav-cta:hover{opacity:0.85;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;flex-shrink:0;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;transition:0.3s;}
+
+/* ADMISSION BANNER */
+.adm-banner{background:linear-gradient(90deg,var(--gold),#e8911a);padding:0.75rem 5%;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:65px;}
+.adm-banner p{color:var(--navy);font-weight:700;font-size:0.95rem;}
+.adm-banner a{background:var(--navy);color:var(--gold);padding:0.4rem 1.1rem;border-radius:5px;font-weight:700;font-size:0.8rem;text-decoration:none;}
+
+/* COUNTDOWN */
+.countdown-bar{background:var(--deep);border-bottom:1px solid var(--border);padding:0.8rem 5%;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;}
+.cd-label{font-size:0.8rem;color:var(--muted);font-weight:600;letter-spacing:0.5px;}
+.cd-units{display:flex;gap:0.75rem;}
+.cd-unit{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.9rem;text-align:center;min-width:60px;}
+.cd-num{font-family:'Space Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--gold);line-height:1;}
+.cd-text{font-size:0.6rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:4rem 5%;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 65% 50%,rgba(59,130,246,0.12) 0%,transparent 70%),radial-gradient(ellipse 40% 50% at 30% 80%,rgba(245,166,35,0.06) 0%,transparent 70%);}
+.hero-grid-bg{position:absolute;inset:0;opacity:0.04;background-image:linear-gradient(var(--white) 1px,transparent 1px),linear-gradient(90deg,var(--white) 1px,transparent 1px);background-size:60px 60px;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);color:var(--gold);padding:0.35rem 1rem;border-radius:100px;font-size:0.78rem;font-weight:600;letter-spacing:0.5px;margin-bottom:1.5rem;animation:fadeUp 0.6s ease forwards;}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 1.5s infinite;}
+.hero-content{position:relative;z-index:1;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,4.5vw,4rem);font-weight:900;line-height:1.1;margin-bottom:1.5rem;animation:fadeUp 0.7s 0.1s ease both;}
+.hero h1 em{font-style:italic;color:var(--gold);display:block;}
+.hero p{color:var(--muted);font-size:1rem;line-height:1.7;max-width:480px;margin-bottom:2.5rem;animation:fadeUp 0.7s 0.2s ease both;}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp 0.7s 0.3s ease both;}
+.btn-primary{background:var(--gold);color:var(--navy);padding:0.85rem 2rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 0 30px rgba(245,166,35,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(245,166,35,0.45);}
+.btn-outline{border:1.5px solid rgba(255,255,255,0.2);color:var(--white);padding:0.85rem 2rem;border-radius:8px;font-weight:600;font-size:1rem;text-decoration:none;transition:0.2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+.hero-stats{display:flex;gap:2.5rem;margin-top:3rem;flex-wrap:wrap;animation:fadeUp 0.7s 0.4s ease both;}
+.stat-num{font-family:'Space Mono',monospace;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1;}
+.stat-label{color:var(--muted);font-size:0.8rem;margin-top:0.3rem;}
+.hero-visual{position:relative;z-index:1;display:flex;justify-content:center;align-items:center;animation:fadeRight 0.8s 0.2s ease both;}
+.classroom-card{position:relative;width:100%;max-width:480px;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 40px 80px rgba(0,0,0,0.5),0 0 60px rgba(59,130,246,0.1);}
+.classroom-img{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#1a2640 0%,#0d1a30 50%,#162035 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:2rem;position:relative;overflow:hidden;}
+.classroom-icon{font-size:4rem;filter:drop-shadow(0 0 20px rgba(59,130,246,0.5));animation:float 3s ease-in-out infinite;}
+.classroom-img p{color:rgba(255,255,255,0.4);font-size:0.8rem;text-align:center;font-style:italic;}
+.classroom-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(10,14,26,0.95),transparent);padding:1.5rem;}
+.admission-tag{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:700;padding:0.3rem 0.8rem;border-radius:4px;letter-spacing:0.5px;animation:pulse2 1.5s infinite;}
+.floating-badge{position:absolute;top:-14px;right:20px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.8rem 1.2rem;display:flex;align-items:center;gap:0.7rem;box-shadow:0 10px 30px rgba(0,0,0,0.4);}
+.fb-text strong{display:block;font-size:0.85rem;color:var(--white);}
+.fb-text span{font-size:0.72rem;color:var(--muted);}
+
+/* SECTION COMMON */
+section{padding:5rem 5%;}
+.section-tag{font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:0.8rem;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;line-height:1.1;margin-bottom:1rem;}
+.section-sub{color:var(--muted);font-size:1rem;line-height:1.7;max-width:540px;}
+.section-header{margin-bottom:3rem;}
+.text-gold{color:var(--gold);}
+
+/* PROGRAMS */
+.programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;}
+.program-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;transition:transform 0.2s,border-color 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;}
+.program-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity 0.2s;}
+.program-card:hover{transform:translateY(-4px);border-color:rgba(245,166,35,0.3);box-shadow:0 20px 50px rgba(0,0,0,0.3);}
+.program-card:hover::before{opacity:1;}
+.program-card.featured{border-color:rgba(245,166,35,0.4);background:linear-gradient(135deg,#1a1f2e,#111827);box-shadow:0 0 40px rgba(245,166,35,0.08);}
+.program-card.featured::before{opacity:1;}
+.featured-tag{position:absolute;top:1rem;right:1rem;background:var(--gold);color:var(--navy);font-size:0.65rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:4px;letter-spacing:0.5px;}
+.program-icon{font-size:2.2rem;margin-bottom:1rem;display:block;}
+.program-class{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;}
+.program-card h3{font-size:1.2rem;font-weight:700;margin-bottom:0.75rem;}
+.program-card p{color:var(--muted);font-size:0.875rem;line-height:1.6;margin-bottom:1.5rem;}
+.program-subjects{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.5rem;}
+.tag{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);color:var(--accent2);font-size:0.7rem;padding:0.25rem 0.6rem;border-radius:4px;font-weight:500;}
+.program-link{color:var(--gold);font-size:0.875rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;transition:gap 0.2s;}
+.program-link:hover{gap:0.6rem;}
+
+/* FEE STRUCTURE */
+.fee-section{background:var(--deep);}
+.fee-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
+.fee-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;text-align:center;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;}
+.fee-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.3);}
+.fee-card.popular{border-color:rgba(245,166,35,0.5);box-shadow:0 0 30px rgba(245,166,35,0.08);}
+.popular-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:0.65rem;font-weight:700;padding:0.25rem 0.9rem;border-radius:0 0 8px 8px;letter-spacing:0.5px;}
+.fee-class{font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:0.5rem;margin-top:0.5rem;}
+.fee-amount{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold);margin:0.5rem 0;}
+.fee-amount span{font-size:1rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:400;}
+.fee-card h3{font-size:1rem;font-weight:700;margin-bottom:1rem;}
+.fee-includes{list-style:none;text-align:left;display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.5rem;}
+.fee-includes li{font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:0.5rem;}
+.fee-includes li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+.fee-cta{display:block;background:var(--gold);color:var(--navy);padding:0.65rem;border-radius:8px;font-weight:700;font-size:0.875rem;text-decoration:none;transition:opacity 0.2s;}
+.fee-cta:hover{opacity:0.85;}
+.fee-note{text-align:center;margin-top:1.5rem;color:var(--muted);font-size:0.82rem;}
+
+/* BATCH SCHEDULE */
+.batch-section{}
+.batch-tabs{display:flex;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap;}
+.batch-tab{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:0.5rem 1.2rem;border-radius:8px;cursor:pointer;font-size:0.875rem;font-weight:500;transition:0.2s;}
+.batch-tab.active{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:700;}
+.batch-table-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;}
+thead th{background:rgba(245,166,35,0.1);color:var(--gold);font-size:0.78rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;padding:0.9rem 1rem;text-align:left;border-bottom:1px solid var(--border);}
+tbody tr{border-bottom:1px solid rgba(255,255,255,0.05);transition:background 0.15s;}
+tbody tr:hover{background:rgba(255,255,255,0.03);}
+tbody td{padding:0.9rem 1rem;font-size:0.875rem;color:var(--muted);}
+tbody td:first-child{color:var(--white);font-weight:600;}
+.avail-badge{display:inline-block;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:var(--green);font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600;}
+.filling-badge{display:inline-block;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);color:var(--gold);font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600;}
+.full-badge{display:inline-block;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);color:#ef4444;font-size:0.7rem;padding:0.2rem 0.6rem;border-radius:4px;font-weight:600;}
+
+/* WHY US */
+.why-section{background:var(--deep);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.why-features{display:flex;flex-direction:column;gap:1.25rem;}
+.why-feature{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;border-radius:12px;border:1px solid transparent;transition:0.2s;cursor:default;}
+.why-feature:hover{background:var(--card);border-color:var(--border);}
+.feature-icon-wrap{width:48px;height:48px;border-radius:12px;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.2);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.why-feature h4{font-size:1rem;font-weight:600;margin-bottom:0.3rem;}
+.why-feature p{color:var(--muted);font-size:0.875rem;line-height:1.6;}
+.why-visual{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;display:flex;flex-direction:column;gap:1.25rem;}
+.results-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;border-bottom:1px solid var(--border);padding-bottom:0.75rem;}
+.result-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.result-info{display:flex;align-items:center;gap:0.75rem;flex:1;}
+.result-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#2a3a5c,#1e2d4a);display:flex;align-items:center;justify-content:center;font-size:0.9rem;border:2px solid var(--border);flex-shrink:0;}
+.result-name{font-size:0.82rem;font-weight:600;}
+.result-class{font-size:0.7rem;color:var(--muted);}
+.result-bar-wrap{height:3px;background:rgba(255,255,255,0.05);border-radius:2px;margin-top:0.25rem;}
+.result-bar{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--gold),var(--accent));transition:width 1.5s ease;}
+.result-percent{font-family:'Space Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--gold);flex-shrink:0;}
+
+/* SUBJECT RESULTS */
+.subject-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-top:3rem;}
+.subj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center;}
+.subj-icon{font-size:1.75rem;margin-bottom:0.5rem;}
+.subj-name{font-size:0.78rem;color:var(--muted);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.5px;font-weight:600;}
+.subj-avg{font-family:'Space Mono',monospace;font-size:1.6rem;font-weight:700;color:var(--gold);}
+.subj-label{font-size:0.7rem;color:var(--muted);margin-top:0.2rem;}
+
+/* FACULTY */
+.faculty-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:2rem;}
+.faculty-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform 0.2s,box-shadow 0.2s;}
+.faculty-card:hover{transform:translateY(-5px);box-shadow:0 30px 60px rgba(0,0,0,0.4);}
+.faculty-img{aspect-ratio:1;background:linear-gradient(135deg,#1a2640,#0d1a30);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.faculty-img::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 100%,rgba(59,130,246,0.15),transparent 70%);}
+.faculty-placeholder{font-size:3.5rem;filter:drop-shadow(0 0 20px rgba(59,130,246,0.4));}
+.faculty-img p{font-size:0.7rem;color:rgba(255,255,255,0.3);font-style:italic;}
+.faculty-subject-badge{position:absolute;top:1rem;left:1rem;background:rgba(10,14,26,0.85);border:1px solid var(--border);border-radius:6px;padding:0.3rem 0.7rem;font-size:0.7rem;font-weight:700;color:var(--gold);letter-spacing:0.5px;}
+.faculty-body{padding:1.5rem;}
+.faculty-body h3{font-size:1.1rem;font-weight:700;margin-bottom:0.25rem;}
+.faculty-degree{font-size:0.78rem;color:var(--accent2);margin-bottom:0.75rem;font-weight:500;}
+.faculty-body p{color:var(--muted);font-size:0.84rem;line-height:1.6;margin-bottom:1rem;}
+.faculty-exp{display:flex;align-items:center;gap:0.4rem;font-size:0.78rem;color:var(--muted);padding-top:0.75rem;border-top:1px solid var(--border);}
+.faculty-exp strong{color:var(--gold);}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--deep);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem;}
+.testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;position:relative;transition:transform 0.2s;}
+.testimonial-card:hover{transform:translateY(-3px);}
+.quote-mark{font-family:'Playfair Display',serif;font-size:5rem;line-height:0.5;color:var(--gold);opacity:0.3;position:absolute;top:1rem;right:1.5rem;}
+.stars{color:var(--gold);font-size:0.9rem;margin-bottom:1rem;letter-spacing:2px;}
+.testimonial-card p{color:rgba(249,250,251,0.85);font-size:0.875rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic;}
+.testimonial-meta{display:flex;align-items:center;gap:0.75rem;}
+.t-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;border:2px solid var(--border);flex-shrink:0;background:linear-gradient(135deg,#1e2d4a,#2a3a5c);}
+.t-name{font-size:0.875rem;font-weight:700;}
+.t-detail{font-size:0.72rem;color:var(--gold);font-weight:500;}
+.photo-placeholder{font-size:0.62rem;color:rgba(255,255,255,0.2);font-style:italic;margin-top:0.2rem;}
+
+/* GALLERY */
+.gallery-section{}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.gallery-item{border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;position:relative;}
+.gallery-item:hover{transform:scale(1.02);box-shadow:0 15px 40px rgba(0,0,0,0.4);}
+.gallery-item:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto;}
+.gallery-emoji{font-size:2.5rem;}
+.gallery-label{font-size:0.72rem;color:rgba(255,255,255,0.35);font-style:italic;text-align:center;padding:0 1rem;}
+
+/* FAQ */
+.faq-section{background:var(--deep);}
+.faq-list{display:flex;flex-direction:column;gap:1rem;max-width:800px;}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:1.1rem 1.5rem;cursor:pointer;font-weight:600;font-size:0.95rem;gap:1rem;transition:color 0.2s;}
+.faq-q:hover{color:var(--gold);}
+.faq-icon{font-size:1.2rem;color:var(--gold);flex-shrink:0;transition:transform 0.3s;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease;}
+.faq-a-inner{padding:0 1.5rem 1.1rem;color:var(--muted);font-size:0.875rem;line-height:1.7;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-item.open .faq-a{max-height:200px;}
+
+/* CTA SECTION */
+.cta-section{background:linear-gradient(135deg,#0d1526,#091020);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,0.06),transparent 70%);}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.cta-note{margin-top:1.5rem;font-size:0.8rem;color:var(--muted);}
+
+/* CONTACT */
+.contact-wrapper{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.contact-info{display:flex;flex-direction:column;gap:1.25rem;}
+.contact-item{display:flex;gap:1rem;align-items:flex-start;padding:1.25rem;background:var(--card);border:1px solid var(--border);border-radius:12px;}
+.contact-icon{font-size:1.5rem;width:44px;height:44px;background:rgba(245,166,35,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.contact-item h4{font-size:0.875rem;font-weight:600;margin-bottom:0.25rem;}
+.contact-item p{color:var(--muted);font-size:0.875rem;line-height:1.5;}
+.contact-form{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;}
+.contact-form h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:1.5rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0;}
+.form-group{margin-bottom:1rem;}
+.form-group label{display:block;font-size:0.8rem;font-weight:600;color:var(--muted);margin-bottom:0.4rem;}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:0.75rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;transition:border-color 0.2s;outline:none;-webkit-appearance:none;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-group select option{background:var(--card);}
+.form-group textarea{resize:vertical;min-height:90px;}
+.btn-form{width:100%;background:var(--gold);color:var(--navy);border:none;padding:0.9rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity 0.2s,transform 0.2s;}
+.btn-form:hover{opacity:0.88;transform:translateY(-1px);}
+
+/* MAP */
+.map-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);margin-top:1.5rem;}
+.map-placeholder{background:var(--card);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;}
+.map-placeholder p{color:var(--muted);font-size:0.8rem;text-align:center;}
+
+/* FOOTER */
+footer{padding:3rem 5% 2rem;border-top:1px solid var(--border);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem;}
+.footer-brand h2{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:0.75rem;}
+.footer-brand h2 span{color:var(--gold);}
+.footer-brand p{color:var(--muted);font-size:0.875rem;line-height:1.7;max-width:280px;}
+footer h4{font-size:0.875rem;font-weight:700;margin-bottom:1rem;}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+footer ul a{color:var(--muted);text-decoration:none;font-size:0.875rem;transition:color 0.2s;}
+footer ul a:hover{color:var(--gold);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);flex-wrap:wrap;gap:0.5rem;}
+
+/* FLOATING WA BUTTON */
+.wa-float{position:fixed;bottom:90px;right:20px;z-index:300;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 4px 20px rgba(37,211,102,0.5);text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;animation:waFloat 2s ease-in-out infinite;}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.65);}
+@keyframes waFloat{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.5)}50%{box-shadow:0 4px 30px rgba(37,211,102,0.75)}}
+.wa-tooltip{position:absolute;right:68px;background:var(--card);color:var(--white);font-size:0.78rem;font-weight:600;padding:0.4rem 0.8rem;border-radius:8px;white-space:nowrap;border:1px solid var(--border);opacity:0;transform:translateX(5px);transition:0.2s;pointer-events:none;}
+.wa-float:hover .wa-tooltip{opacity:1;transform:translateX(0);}
+
+/* STICKY BOTTOM BAR (mobile) */
+.sticky-bottom{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(10,14,26,0.97);border-top:1px solid var(--border);padding:0.75rem 1rem;gap:0.75rem;}
+.sticky-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:0.4rem;padding:0.65rem 0.5rem;border-radius:8px;font-weight:700;font-size:0.82rem;text-decoration:none;transition:opacity 0.2s;}
+.sticky-btn.call{background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:var(--accent);}
+.sticky-btn.wa{background:rgba(37,211,102,0.15);border:1px solid rgba(37,211,102,0.3);color:#25D366;}
+.sticky-btn.enroll{background:var(--gold);color:var(--navy);}
+.sticky-btn:hover{opacity:0.85;}
+
+/* EXIT POPUP */
+.popup-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:500;align-items:center;justify-content:center;padding:1rem;}
+.popup-overlay.show{display:flex;}
+.popup-box{background:var(--card);border:1px solid rgba(245,166,35,0.3);border-radius:20px;padding:2.5rem;max-width:440px;width:100%;text-align:center;position:relative;box-shadow:0 40px 80px rgba(0,0,0,0.6);}
+.popup-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--muted);font-size:1.3rem;cursor:pointer;}
+.popup-emoji{font-size:3rem;margin-bottom:1rem;}
+.popup-box h3{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:900;margin-bottom:0.75rem;}
+.popup-box p{color:var(--muted);font-size:0.9rem;line-height:1.6;margin-bottom:1.5rem;}
+.popup-offer{background:rgba(245,166,35,0.1);border:1px dashed rgba(245,166,35,0.4);border-radius:10px;padding:1rem;margin-bottom:1.5rem;}
+.popup-offer strong{display:block;color:var(--gold);font-size:1rem;margin-bottom:0.25rem;}
+.popup-offer span{font-size:0.82rem;color:var(--muted);}
+.popup-cta{display:block;background:var(--gold);color:var(--navy);padding:0.85rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;margin-bottom:0.75rem;transition:opacity 0.2s;}
+.popup-cta:hover{opacity:0.88;}
+.popup-skip{color:var(--muted);font-size:0.8rem;cursor:pointer;text-decoration:underline;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+@keyframes pulse2{0%,100%{box-shadow:0 0 0 0 rgba(245,166,35,0.4)}50%{box-shadow:0 0 0 8px rgba(245,166,35,0)}}
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:3rem;}
+  .hero-visual{display:none;}
+  .why-grid{grid-template-columns:1fr;}
+  .contact-wrapper{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-item:first-child{grid-column:span 2;grid-row:span 1;}
+}
+@media(max-width:640px){
+  .nav-links{display:none;}
+  .nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .footer-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:1.5rem;}
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .sticky-bottom{display:flex;}
+  .wa-float{bottom:85px;}
+  .adm-banner{display:none;}
+}
+
+
+/* ═══════════════════════════════════════════
+   NEW PRO FEATURES CSS
+   ═══════════════════════════════════════════ */
+
+/* ── FEATURE 1: LEAD CAPTURE MODAL ── */
+.lead-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;padding:1rem;backdrop-filter:blur(8px);}
+.lead-overlay.show{display:flex;}
+.lead-box{background:var(--card);border:1px solid rgba(245,166,35,0.4);border-radius:24px;padding:2.5rem;max-width:440px;width:100%;position:relative;box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 60px rgba(245,166,35,0.1);text-align:center;animation:fadeUp 0.5s ease;}
+.lead-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:0.2s;}
+.lead-close:hover{background:rgba(255,255,255,0.05);color:var(--gold);}
+.lead-emoji{font-size:3.5rem;margin-bottom:1rem;display:block;animation:float 3s ease-in-out infinite;}
+.lead-box h3{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;margin-bottom:0.5rem;}
+.lead-box .subtitle{color:var(--gold);font-size:0.85rem;font-weight:600;margin-bottom:1rem;}
+.lead-box p{color:var(--muted);font-size:0.9rem;line-height:1.6;margin-bottom:1.5rem;}
+.lead-social-proof{display:flex;align-items:center;justify-content:center;gap:0.5rem;margin-bottom:1.5rem;font-size:0.8rem;color:var(--muted);}
+.lead-social-proof .avatars{display:flex;}
+.lead-social-proof .avatars span{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#2a3a5c,#1e2d4a);border:2px solid var(--card);display:flex;align-items:center;justify-content:center;font-size:0.75rem;margin-left:-8px;}
+.lead-social-proof .avatars span:first-child{margin-left:0;}
+.lead-input{width:100%;background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.1);border-radius:12px;padding:1rem 1.2rem;color:var(--white);font-size:1rem;outline:none;transition:border-color 0.3s;margin-bottom:1rem;font-family:'DM Sans',sans-serif;}
+.lead-input:focus{border-color:var(--gold);box-shadow:0 0 20px rgba(245,166,35,0.1);}
+.lead-btn{width:100%;background:linear-gradient(135deg,var(--gold),#e8911a);color:var(--navy);border:none;padding:1rem;border-radius:12px;font-weight:800;font-size:1rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;font-family:'DM Sans',sans-serif;}
+.lead-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,166,35,0.4);}
+.lead-skip{color:var(--muted);font-size:0.8rem;cursor:pointer;margin-top:1rem;text-decoration:underline;transition:color 0.2s;}
+.lead-skip:hover{color:var(--gold);}
+
+/* ── FEATURE 2: SCHOLARSHIP TEST SECTION ── */
+.scholar-section{background:linear-gradient(135deg,#0d1526,#091020);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+.scholar-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,0.08),transparent 70%);}
+.scholar-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;position:relative;z-index:1;}
+.scholar-visual{display:flex;flex-direction:column;gap:1.5rem;}
+.scholar-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(245,166,35,0.1);border:1px solid rgba(245,166,35,0.3);color:var(--gold);padding:0.4rem 1rem;border-radius:100px;font-size:0.75rem;font-weight:600;width:fit-content;}
+.scholar-visual h3{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;line-height:1.2;}
+.scholar-visual p{color:var(--muted);line-height:1.7;}
+.scholar-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.scholar-stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center;}
+.scholar-stat .num{font-family:'Space Mono';font-size:1.8rem;font-weight:700;color:var(--gold);}
+.scholar-stat .label{font-size:0.75rem;color:var(--muted);margin-top:0.25rem;}
+.scholar-countdown{display:flex;gap:0.75rem;justify-content:center;margin:1.5rem 0;}
+.scholar-cd-unit{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;text-align:center;min-width:65px;}
+.scholar-cd-num{font-family:'Space Mono';font-size:1.4rem;font-weight:700;color:var(--gold);}
+.scholar-cd-text{font-size:0.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;}
+.scholar-registered{font-size:0.85rem;color:var(--muted);text-align:center;margin-top:1rem;}
+.scholar-registered strong{color:var(--green);}
+
+/* ── FEATURE 3: RESULT PREDICTOR ── */
+.predictor-section{background:var(--deep);}
+.predictor-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2.5rem;max-width:600px;margin:0 auto;text-align:center;}
+.predictor-card h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:0.5rem;}
+.predictor-card .subtitle{color:var(--muted);font-size:0.9rem;margin-bottom:2rem;}
+.predictor-slider-wrap{margin-bottom:2rem;}
+.predictor-slider-wrap label{display:block;color:var(--muted);font-size:0.8rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:0.5px;}
+.predictor-slider{-webkit-appearance:none;width:100%;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--gold),var(--accent));outline:none;margin-bottom:0.5rem;}
+.predictor-slider::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;border-radius:50%;background:var(--gold);border:3px solid var(--card);box-shadow:0 0 20px rgba(245,166,35,0.5);cursor:pointer;transition:transform 0.2s;}
+.predictor-slider::-webkit-slider-thumb:hover{transform:scale(1.2);}
+.predictor-slider::-moz-range-thumb{width:28px;height:28px;border-radius:50%;background:var(--gold);border:3px solid var(--card);box-shadow:0 0 20px rgba(245,166,35,0.5);cursor:pointer;}
+.slider-labels{display:flex;justify-content:space-between;font-size:0.7rem;color:var(--muted);margin-bottom:2rem;}
+.predictor-result{background:linear-gradient(135deg,rgba(245,166,35,0.08),rgba(59,130,246,0.08));border:1px dashed rgba(245,166,35,0.3);border-radius:16px;padding:2rem;}
+.predictor-result .before-after{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap;}
+.predictor-result .before-after .box{text-align:center;}
+.predictor-result .before-after .box .label{font-size:0.75rem;color:var(--muted);margin-bottom:0.25rem;}
+.predictor-result .before-after .box .val{font-family:'Space Mono';font-size:2rem;font-weight:700;}
+.predictor-result .before-after .box .before{color:var(--muted);}
+.predictor-result .before-after .box .after{color:var(--gold);}
+.predictor-result .before-after .arrow{font-size:1.5rem;color:var(--green);}
+.predictor-result .improvement{color:var(--green);font-size:1rem;font-weight:600;}
+.predictor-result .disclaimer{font-size:0.7rem;color:var(--muted);margin-top:0.75rem;font-style:italic;}
+
+/* ── FEATURE 4: SOCIAL PROOF TICKER ── */
+.social-ticker{position:fixed;bottom:80px;left:1rem;z-index:250;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:0.75rem 1rem;display:flex;align-items:center;gap:0.75rem;max-width:320px;box-shadow:0 10px 30px rgba(0,0,0,0.4);transform:translateY(150px);transition:transform 0.6s cubic-bezier(0.34,1.56,0.64,1);}
+.social-ticker.show{transform:translateY(0);}
+.social-ticker .dot{width:8px;height:8px;background:var(--green);border-radius:50%;animation:pulse 1.5s infinite;flex-shrink:0;}
+.social-ticker .content{flex:1;}
+.social-ticker .content .name{color:var(--white);font-weight:600;font-size:0.82rem;}
+.social-ticker .content .action{color:var(--muted);font-size:0.75rem;}
+.social-ticker .content .time{color:var(--gold);font-size:0.7rem;}
+.social-ticker .close-ticker{background:none;border:none;color:var(--muted);font-size:1rem;cursor:pointer;padding:0.2rem;flex-shrink:0;transition:color 0.2s;}
+.social-ticker .close-ticker:hover{color:var(--gold);}
+
+/* ── FEATURE 5: MARATHI TOGGLE ── */
+.lang-toggle{background:var(--card);border:1px solid var(--border);color:var(--gold);padding:0.4rem 0.9rem;border-radius:6px;font-size:0.8rem;font-weight:700;cursor:pointer;transition:0.2s;font-family:'DM Sans',sans-serif;margin-left:1rem;}
+.lang-toggle:hover{background:rgba(245,166,35,0.1);border-color:rgba(245,166,35,0.4);}
+.lang-toggle.active{background:var(--gold);color:var(--navy);}
+[data-mr]{opacity:0;position:absolute;pointer-events:none;transition:opacity 0.3s;}
+.lang-marathi [data-en]{opacity:0;position:absolute;pointer-events:none;}
+.lang-marathi [data-mr]{opacity:1;position:static;pointer-events:auto;}
+.lang-marathi .section-tag,.lang-marathi .section-title,.lang-marathi .section-sub{opacity:1;position:static;}
+
+/* ── FEATURE 6: VISUAL TIMETABLE ── */
+.timetable-section{background:var(--deep);}
+.timetable-grid{display:grid;grid-template-columns:80px repeat(5,1fr);gap:0.5rem;overflow-x:auto;padding-bottom:1rem;}
+.timetable-grid .header-cell{background:var(--gold);color:var(--navy);padding:0.6rem;font-size:0.7rem;font-weight:700;text-align:center;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;}
+.timetable-grid .time-cell{background:var(--card);border:1px solid var(--border);padding:0.6rem;font-size:0.7rem;color:var(--muted);text-align:center;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:600;}
+.timetable-grid .slot{min-height:70px;border-radius:8px;padding:0.6rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.2rem;transition:transform 0.2s;cursor:pointer;}
+.timetable-grid .slot:hover{transform:scale(1.05);}
+.timetable-grid .slot .subject{font-size:0.75rem;font-weight:700;}
+.timetable-grid .slot .class{font-size:0.65rem;opacity:0.8;}
+.timetable-grid .slot.physics{background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.3);color:var(--accent2);}
+.timetable-grid .slot.chemistry{background:rgba(245,166,35,0.12);border:1px solid rgba(245,166,35,0.3);color:var(--gold);}
+.timetable-grid .slot.maths{background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);color:var(--green);}
+.timetable-grid .slot.biology{background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);color:#ec4899;}
+.timetable-grid .slot.accounts{background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.3);color:#a855f7;}
+.timetable-grid .slot.economics{background:rgba(6,182,212,0.12);border:1px solid rgba(6,182,212,0.3);color:var(--accent2);}
+.timetable-grid .slot.empty{background:transparent;border:1px dashed rgba(255,255,255,0.05);}
+.timetable-legend{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
+.timetable-legend .legend-item{display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--muted);}
+.timetable-legend .dot{width:10px;height:10px;border-radius:3px;}
+
+/* ── FEATURE 7: SPIN WHEEL ── */
+.wheel-section{text-align:center;}
+.wheel-container{position:relative;width:280px;height:280px;margin:0 auto 2rem;}
+.wheel-outer{width:100%;height:100%;border-radius:50%;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px rgba(245,166,35,0.1);transition:transform 4s cubic-bezier(0.17,0.67,0.12,0.99);}
+.wheel-outer.spinning{animation:wheelSpin 4s cubic-bezier(0.17,0.67,0.12,0.99) forwards;}
+@keyframes wheelSpin{from{transform:rotate(0deg);}to{transform:rotate(var(--spin-deg,1800deg));}}
+.wheel-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:var(--card);border:3px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 5px 20px rgba(0,0,0,0.3);z-index:10;}
+.wheel-pointer{position:absolute;top:-15px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:20px solid var(--gold);z-index:20;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3));}
+.wheel-btn{background:linear-gradient(135deg,var(--gold),#e8911a);color:var(--navy);border:none;padding:1rem 2.5rem;border-radius:12px;font-weight:800;font-size:1.1rem;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;font-family:'DM Sans',sans-serif;}
+.wheel-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(245,166,35,0.4);}
+.wheel-btn:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+.wheel-result{margin-top:1.5rem;font-size:1.2rem;color:var(--gold);font-weight:700;min-height:3rem;}
+.wheel-result .prize{font-size:1.5rem;display:block;margin-bottom:0.5rem;}
+.wheel-result .claim-btn{display:inline-block;background:var(--green);color:#fff;padding:0.6rem 1.5rem;border-radius:8px;font-size:0.9rem;font-weight:700;text-decoration:none;margin-top:0.5rem;transition:opacity 0.2s;}
+.wheel-result .claim-btn:hover{opacity:0.85;}
+
+/* ── FEATURE 8: TRANSFORMATION CARDS ── */
+.transform-section{background:var(--deep);}
+.transform-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;}
+.transform-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;}
+.transform-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--accent));}
+.transform-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.3);}
+.transform-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;}
+.transform-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#2a3a5c,#1e2d4a);display:flex;align-items:center;justify-content:center;font-size:1.5rem;border:2px solid var(--border);flex-shrink:0;}
+.transform-info{flex:1;}
+.transform-info .name{font-size:1rem;font-weight:700;}
+.transform-info .class{font-size:0.75rem;color:var(--muted);}
+.transform-scores{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
+.transform-scores .score-box{text-align:center;flex:1;}
+.transform-scores .score-box .label{font-size:0.7rem;color:var(--muted);margin-bottom:0.25rem;}
+.transform-scores .score-box .score{font-family:'Space Mono';font-size:1.6rem;font-weight:700;}
+.transform-scores .score-box .before{color:#ef4444;}
+.transform-scores .score-box .after{color:var(--green);}
+.transform-scores .arrow{font-size:1.2rem;color:var(--gold);}
+.transform-bar-wrap{height:6px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden;margin-bottom:0.75rem;}
+.transform-bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--green));border-radius:3px;transition:width 1.5s ease;width:0%;}
+.transform-quote{font-size:0.85rem;color:var(--muted);font-style:italic;line-height:1.6;border-top:1px solid var(--border);padding-top:0.75rem;}
+
+/* Responsive for new features */
+@media(max-width:900px){
+  .scholar-grid{grid-template-columns:1fr;}
+  .timetable-grid{grid-template-columns:60px repeat(5,1fr);}
+  .wheel-container{width:240px;height:240px;}
+}
+@media(max-width:640px){
+  .social-ticker{max-width:260px;left:0.5rem;bottom:75px;}
+  .timetable-grid{grid-template-columns:50px repeat(5,1fr);gap:0.3rem;}
+  .timetable-grid .slot{min-height:55px;padding:0.4rem;}
+  .timetable-grid .slot .subject{font-size:0.65rem;}
+  .predictor-card{padding:1.5rem;}
+  .wheel-container{width:200px;height:200px;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     FEATURE 1: SMART LEAD CAPTURE MODAL
+     ═══════════════════════════════════════════ -->
+<div class="lead-overlay" id="leadModal">
+  <div class="lead-box">
+    <button class="lead-close" onclick="closeLeadModal()">✕</button>
+    <span class="lead-emoji">📚</span>
+    <h3>Free SSC Science Notes</h3>
+    <div class="subtitle">Chapter 1-10 Complete + Important Formulas</div>
+    <p>500+ students already downloaded these notes. Get them delivered to your WhatsApp instantly!</p>
+    <div class="lead-social-proof">
+      <div class="avatars">
+        <span>👦</span><span>👧</span><span>👨‍🎓</span><span>👩‍🎓</span><span>👦</span>
+      </div>
+      <span>Downloaded by 500+ students</span>
+    </div>
+    <input type="tel" class="lead-input" id="leadPhone" placeholder="Enter WhatsApp Number (e.g. 9595194355)" maxlength="10">
+    <button class="lead-btn" onclick="sendLead()">📲 Send Notes on WhatsApp</button>
+    <div class="lead-skip" onclick="closeLeadModal()">No thanks, I'll skip</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURE 4: SOCIAL PROOF TICKER
+     ═══════════════════════════════════════════ -->
+<div class="social-ticker" id="socialTicker">
+  <div class="dot"></div>
+  <div class="content">
+    <div class="name" id="tickerName">Rahul P.</div>
+    <div class="action">enrolled for 11th Science</div>
+    <div class="time">2 min ago</div>
+  </div>
+  <button class="close-ticker" onclick="closeTicker()">✕</button>
+</div>
+
+
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/919595194355?text=Hello%2C%20I%20want%20to%20know%20about%20admissions%20at%20Genius%20Mind%20Classes." class="wa-float" target="_blank">
+  <span class="wa-tooltip">Chat on WhatsApp</span>
+  💬
+</a>
+
+<!-- STICKY BOTTOM BAR (mobile) -->
+<div class="sticky-bottom">
+  <a href="tel:+919595194355" class="sticky-btn call">📞 Call</a>
+  <a href="https://wa.me/919595194355" class="sticky-btn wa" target="_blank">💬 WhatsApp</a>
+  <a href="#contact" class="sticky-btn enroll">✍️ Enroll</a>
+</div>
+
+<!-- EXIT POPUP -->
+<div class="popup-overlay" id="exitPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup()">✕</button>
+    <div class="popup-emoji">🎓</div>
+    <h3>Wait! Don't Miss Out</h3>
+    <p>Admissions for 2026–27 are filling up fast. Secure your seat before batches are full!</p>
+    <div class="popup-offer">
+      <strong>🎁 Free Demo Class Offer</strong>
+      <span>Attend a free demo before enrolling — no commitment, no fees.</span>
+    </div>
+    <a href="#contact" class="popup-cta" onclick="closePopup()">Book Free Demo Class →</a>
+    <div class="popup-skip" onclick="closePopup()">No thanks, I'll miss out</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Genius Mind <span>Classes</span></div>
+  <ul class="nav-links">
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#fees">Fees</a></li>
+    <li><a href="#faculty">Faculty</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Enroll Now →</a>
+<button class="lang-toggle" id="langBtn" onclick="toggleLang()">मराठी</button>
+
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ADMISSION BANNER -->
+<div class="adm-banner">
+  <p>🎓 Admissions Open 2026–27 — Limited Seats Available!</p>
+  <a href="#contact">Secure Your Seat →</a>
+</div>
+
+<!-- COUNTDOWN TIMER -->
+<div class="countdown-bar">
+  <span class="cd-label">⏳ ADMISSION CLOSES IN</span>
+  <div class="cd-units">
+    <div class="cd-unit"><div class="cd-num" id="cd-days">00</div><div class="cd-text">Days</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-hours">00</div><div class="cd-text">Hours</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-mins">00</div><div class="cd-text">Mins</div></div>
+    <div class="cd-unit"><div class="cd-num" id="cd-secs">00</div><div class="cd-text">Secs</div></div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span>Admissions Open 2026–27</div>
+    <h1>Where Potential Meets<em>Purpose.</em></h1>
+    <p>Genius Mind Classes is a premier coaching institute for Class 8th–12th students, with specialised focus on Science & Commerce for Board Exams.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Enroll Now →</a>
+      <a href="#programs" class="btn-outline">View Programs</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num counter" data-target="95">0</div><div class="stat-label">% Board Result Rate</div></div>
+      <div class="stat"><div class="stat-num counter" data-target="500">0</div><div class="stat-label">+ Students Coached</div></div>
+      <div class="stat"><div class="stat-num counter" data-target="4">0</div><div class="stat-label">Expert Faculty</div></div>
+      <div class="stat"><div class="stat-num counter" data-target="8">0</div><div class="stat-label">+ Years Excellence</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="classroom-card">
+      <div class="classroom-img">
+        <div class="classroom-icon">🏫</div>
+        <p>[ Replace with Classroom Photo ]</p>
+      </div>
+      <div class="classroom-overlay"><span class="admission-tag">⚡ ADMISSIONS OPEN 2026–27</span></div>
+      <div class="floating-badge">
+        <div style="font-size:1.4rem">🏆</div>
+        <div class="fb-text"><strong>Top Rankers</strong><span>Every Academic Year</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="section-header reveal">
+    <div class="section-tag">// Programs</div>
+    <h2 class="section-title">Courses We <span class="text-gold">Offer</span></h2>
+    <p class="section-sub">From building fundamentals to crushing board exams — the right program for every student.</p>
+  </div>
+  <div class="programs-grid">
+    <div class="program-card reveal">
+      <span class="program-icon">📐</span>
+      <div class="program-class">Class 8th – 10th</div>
+      <h3>Foundation Program</h3>
+      <p>Rock-solid academic base with concept clarity, regular tests, and personalised guidance.</p>
+      <div class="program-subjects"><span class="tag">Mathematics</span><span class="tag">Science</span><span class="tag">English</span><span class="tag">Social Studies</span></div>
+      <a href="#contact" class="program-link">Enquire Now →</a>
+    </div>
+    <div class="program-card featured reveal">
+      <div class="featured-tag">⭐ MAIN FOCUS</div>
+      <span class="program-icon">⚗️</span>
+      <div class="program-class">Class 11th – 12th</div>
+      <h3>Science Stream</h3>
+      <p>Intensive HSC preparation with subject specialists. Conceptual depth + exam strategy.</p>
+      <div class="program-subjects"><span class="tag">Physics</span><span class="tag">Chemistry</span><span class="tag">Mathematics</span><span class="tag">Biology</span></div>
+      <a href="#contact" class="program-link">Enquire Now →</a>
+    </div>
+    <div class="program-card featured reveal">
+      <div class="featured-tag">⭐ MAIN FOCUS</div>
+      <span class="program-icon">📊</span>
+      <div class="program-class">Class 11th – 12th</div>
+      <h3>Commerce Stream</h3>
+      <p>Comprehensive HSC Commerce coaching with in-depth coverage of all key subjects.</p>
+      <div class="program-subjects"><span class="tag">Accounts</span><span class="tag">Economics</span><span class="tag">Business Studies</span><span class="tag">Maths</span></div>
+      <a href="#contact" class="program-link">Enquire Now →</a>
+    </div>
+    <div class="program-card reveal">
+      <span class="program-icon">🎯</span>
+      <div class="program-class">Crash Course</div>
+      <h3>Board Exam Intensive</h3>
+      <p>High-impact revision for 10th & 12th — focused on high-weightage chapters and past papers.</p>
+      <div class="program-subjects"><span class="tag">SSC Board</span><span class="tag">HSC Board</span><span class="tag">Revision</span></div>
+      <a href="#contact" class="program-link">Enquire Now →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURE 2: SCHOLARSHIP TEST SECTION
+     ═══════════════════════════════════════════ -->
+<section class="scholar-section" id="scholarship">
+  <div class="scholar-grid" style="padding:4rem 5%;">
+    <div class="scholar-visual">
+      <div class="scholar-badge">🏆 FREE SCHOLARSHIP TEST</div>
+      <h3>Win Upto 50% Fee Waiver!</h3>
+      <p>Test your knowledge and win big discounts on admission. Our scholarship test evaluates your current academic standing and rewards excellence.</p>
+      <div class="scholar-stats">
+        <div class="scholar-stat">
+          <div class="num" id="sch-days">25</div>
+          <div class="label">Days Left</div>
+        </div>
+        <div class="scholar-stat">
+          <div class="num" id="sch-seats">12</div>
+          <div class="label">Seats Left</div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <div style="font-size:4rem;margin-bottom:1rem;">🎯</div>
+      <div class="scholar-countdown">
+        <div class="scholar-cd-unit"><div class="scholar-cd-num" id="sch-cd-days">00</div><div class="scholar-cd-text">Days</div></div>
+        <div class="scholar-cd-unit"><div class="scholar-cd-num" id="sch-cd-hours">00</div><div class="scholar-cd-text">Hours</div></div>
+        <div class="scholar-cd-unit"><div class="scholar-cd-num" id="sch-cd-mins">00</div><div class="scholar-cd-text">Mins</div></div>
+        <div class="scholar-cd-unit"><div class="scholar-cd-num" id="sch-cd-secs">00</div><div class="scholar-cd-text">Secs</div></div>
+      </div>
+      <p class="scholar-registered">Already <strong>48 students</strong> registered for the test</p>
+      <a href="#contact" class="btn-primary" style="display:inline-block;margin-top:1.5rem;">Register Free for Test →</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FEE STRUCTURE -->
+<section id="fees" class="fee-section">
+  <div class="section-header reveal">
+    <div class="section-tag">// Fee Structure</div>
+    <h2 class="section-title">Transparent <span class="text-gold">Pricing</span></h2>
+    <p class="section-sub">No hidden charges. Quality education at an affordable price for every family.</p>
+  </div>
+  <div class="fee-grid">
+    <div class="fee-card reveal">
+      <div class="fee-class">Class 8th – 9th</div>
+      <h3>Foundation</h3>
+      <div class="fee-amount">₹[XXX]<span>/month</span></div>
+      <ul class="fee-includes">
+        <li>All Subjects Covered</li>
+        <li>Weekly Tests Included</li>
+        <li>Study Material Provided</li>
+        <li>Parent Progress Reports</li>
+      </ul>
+      <a href="#contact" class="fee-cta">Enquire Now</a>
+    </div>
+    <div class="fee-card reveal">
+      <div class="fee-class">Class 10th (SSC)</div>
+      <h3>Board Prep</h3>
+      <div class="fee-amount">₹[XXX]<span>/month</span></div>
+      <ul class="fee-includes">
+        <li>All Subjects + Board Focus</li>
+        <li>Monthly Mock Tests</li>
+        <li>Previous Year Papers</li>
+        <li>Doubt Sessions</li>
+      </ul>
+      <a href="#contact" class="fee-cta">Enquire Now</a>
+    </div>
+    <div class="fee-card popular reveal">
+      <div class="popular-badge">MOST POPULAR</div>
+      <div class="fee-class">Class 11th – 12th</div>
+      <h3>Science / Commerce</h3>
+      <div class="fee-amount">₹[XXX]<span>/month</span></div>
+      <ul class="fee-includes">
+        <li>Subject-Wise Specialist Faculty</li>
+        <li>Weekly + Monthly Tests</li>
+        <li>Complete Study Material</li>
+        <li>Board Exam Strategy</li>
+        <li>Free Demo Class</li>
+      </ul>
+      <a href="#contact" class="fee-cta">Enquire Now</a>
+    </div>
+    <div class="fee-card reveal">
+      <div class="fee-class">All Classes</div>
+      <h3>Crash Course</h3>
+      <div class="fee-amount">₹[XXX]<span>/batch</span></div>
+      <ul class="fee-includes">
+        <li>30-Day Intensive Revision</li>
+        <li>High-Weightage Topics</li>
+        <li>Past 5 Year Papers</li>
+        <li>Exam Tips & Tricks</li>
+      </ul>
+      <a href="#contact" class="fee-cta">Enquire Now</a>
+    </div>
+  </div>
+  <p class="fee-note reveal">💡 Sibling discounts available · 📅 Quarterly & yearly payment options · 📞 Call for exact fee details</p>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURE 3: RESULT PREDICTOR
+     ═══════════════════════════════════════════ -->
+<section class="predictor-section" id="predictor">
+  <div class="section-header reveal">
+    <div class="section-tag">// Result Predictor</div>
+    <h2 class="section-title">See Your <span class="text-gold">Improvement</span></h2>
+    <p class="section-sub">Slide to see how much your marks can improve after joining Genius Mind Classes.</p>
+  </div>
+  <div class="predictor-card reveal">
+    <h3>📈 Marks Improvement Calculator</h3>
+    <div class="subtitle">Based on our 2024-25 batch average</div>
+    <div class="predictor-slider-wrap">
+      <label>Current Marks (%)</label>
+      <input type="range" class="predictor-slider" id="marksSlider" min="35" max="75" value="55" oninput="updatePrediction()">
+      <div class="slider-labels"><span>35%</span><span id="sliderVal" style="color:var(--gold);font-weight:700;">55%</span><span>75%</span></div>
+    </div>
+    <div class="predictor-result">
+      <div class="before-after">
+        <div class="box">
+          <div class="label">Before GMC</div>
+          <div class="val before" id="beforeMarks">55%</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="box">
+          <div class="label">After 6 Months</div>
+          <div class="val after" id="afterMarks">78%</div>
+        </div>
+      </div>
+      <div class="improvement">+<span id="improvement">23</span>% Improvement</div>
+      <div class="disclaimer">*Based on average improvement of our 2024-25 batch students</div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- BATCH SCHEDULE -->
+<section id="schedule">
+  <div class="section-header reveal">
+    <div class="section-tag">// Batch Schedule</div>
+    <h2 class="section-title">Choose Your <span class="text-gold">Batch</span></h2>
+    <p class="section-sub">Flexible timings designed around school hours. Morning and evening batches available.</p>
+  </div>
+  <div class="batch-tabs">
+    <button class="batch-tab active" onclick="switchTab(this,'science')">⚗️ Science (11–12)</button>
+    <button class="batch-tab" onclick="switchTab(this,'commerce')">📊 Commerce (11–12)</button>
+    <button class="batch-tab" onclick="switchTab(this,'foundation')">📐 Foundation (8–10)</button>
+  </div>
+  <div class="batch-table-wrap reveal">
+    <div id="tab-science">
+      <table>
+        <thead><tr><th>Batch</th><th>Subjects</th><th>Days</th><th>Timing</th><th>Faculty</th><th>Seats</th></tr></thead>
+        <tbody>
+          <tr><td>Morning Batch A</td><td>Physics + Chemistry</td><td>Mon – Sat</td><td>7:00 AM – 9:00 AM</td><td>[Faculty Name]</td><td><span class="filling-badge">Filling Fast</span></td></tr>
+          <tr><td>Evening Batch B</td><td>Physics + Chemistry</td><td>Mon – Sat</td><td>5:00 PM – 7:00 PM</td><td>[Faculty Name]</td><td><span class="avail-badge">Available</span></td></tr>
+          <tr><td>Morning Batch A</td><td>Math + Biology</td><td>Mon – Sat</td><td>7:00 AM – 9:00 AM</td><td>[Faculty Name]</td><td><span class="avail-badge">Available</span></td></tr>
+          <tr><td>Evening Batch B</td><td>Math + Biology</td><td>Mon – Sat</td><td>5:00 PM – 7:00 PM</td><td>[Faculty Name]</td><td><span class="filling-badge">Filling Fast</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="tab-commerce" style="display:none">
+      <table>
+        <thead><tr><th>Batch</th><th>Subjects</th><th>Days</th><th>Timing</th><th>Faculty</th><th>Seats</th></tr></thead>
+        <tbody>
+          <tr><td>Morning Batch A</td><td>Accounts + Economics</td><td>Mon – Sat</td><td>7:00 AM – 9:00 AM</td><td>[Faculty Name]</td><td><span class="avail-badge">Available</span></td></tr>
+          <tr><td>Evening Batch B</td><td>Accounts + Biz Studies</td><td>Mon – Sat</td><td>5:00 PM – 7:00 PM</td><td>[Faculty Name]</td><td><span class="filling-badge">Filling Fast</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="tab-foundation" style="display:none">
+      <table>
+        <thead><tr><th>Batch</th><th>Subjects</th><th>Days</th><th>Timing</th><th>Faculty</th><th>Seats</th></tr></thead>
+        <tbody>
+          <tr><td>Morning Batch</td><td>Maths + Science</td><td>Mon – Fri</td><td>7:00 AM – 8:30 AM</td><td>[Faculty Name]</td><td><span class="avail-badge">Available</span></td></tr>
+          <tr><td>Evening Batch</td><td>Maths + Science + English</td><td>Mon – Sat</td><td>6:00 PM – 8:00 PM</td><td>[Faculty Name]</td><td><span class="avail-badge">Available</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURE 6: VISUAL TIMETABLE
+     ═══════════════════════════════════════════ -->
+<section class="timetable-section" id="timetable">
+  <div class="section-header reveal">
+    <div class="section-tag">// Weekly Schedule</div>
+    <h2 class="section-title">Visual <span class="text-gold">Timetable</span></h2>
+    <p class="section-sub">Color-coded weekly schedule. Plan your week at a glance.</p>
+  </div>
+  <div class="timetable-grid reveal">
+    <div class="header-cell">Time</div>
+    <div class="header-cell">Mon</div>
+    <div class="header-cell">Tue</div>
+    <div class="header-cell">Wed</div>
+    <div class="header-cell">Thu</div>
+    <div class="header-cell">Fri</div>
+
+    <div class="time-cell">7-9 AM</div>
+    <div class="slot physics"><span class="subject">Physics</span><span class="class">11th Sci</span></div>
+    <div class="slot chemistry"><span class="subject">Chemistry</span><span class="class">12th Sci</span></div>
+    <div class="slot maths"><span class="subject">Maths</span><span class="class">10th SSC</span></div>
+    <div class="slot physics"><span class="subject">Physics</span><span class="class">11th Sci</span></div>
+    <div class="slot chemistry"><span class="subject">Chemistry</span><span class="class">12th Sci</span></div>
+
+    <div class="time-cell">9-11 AM</div>
+    <div class="slot empty"></div>
+    <div class="slot biology"><span class="subject">Biology</span><span class="class">12th Sci</span></div>
+    <div class="slot empty"></div>
+    <div class="slot maths"><span class="subject">Maths</span><span class="class">11th Sci</span></div>
+    <div class="slot empty"></div>
+
+    <div class="time-cell">5-7 PM</div>
+    <div class="slot accounts"><span class="subject">Accounts</span><span class="class">11th Com</span></div>
+    <div class="slot economics"><span class="subject">Economics</span><span class="class">12th Com</span></div>
+    <div class="slot physics"><span class="subject">Physics</span><span class="class">12th Sci</span></div>
+    <div class="slot chemistry"><span class="subject">Chemistry</span><span class="class">11th Sci</span></div>
+    <div class="slot maths"><span class="subject">Maths</span><span class="class">10th SSC</span></div>
+
+    <div class="time-cell">7-8 PM</div>
+    <div class="slot maths"><span class="subject">Maths</span><span class="class">8th-9th</span></div>
+    <div class="slot empty"></div>
+    <div class="slot biology"><span class="subject">Biology</span><span class="class">11th Sci</span></div>
+    <div class="slot empty"></div>
+    <div class="slot accounts"><span class="subject">Accounts</span><span class="class">12th Com</span></div>
+  </div>
+  <div class="timetable-legend">
+    <div class="legend-item"><div class="dot" style="background:var(--accent2);"></div>Physics</div>
+    <div class="legend-item"><div class="dot" style="background:var(--gold);"></div>Chemistry</div>
+    <div class="legend-item"><div class="dot" style="background:var(--green);"></div>Maths</div>
+    <div class="legend-item"><div class="dot" style="background:#ec4899;"></div>Biology</div>
+    <div class="legend-item"><div class="dot" style="background:#a855f7;"></div>Accounts</div>
+    <div class="legend-item"><div class="dot" style="background:var(--accent2);"></div>Economics</div>
+  </div>
+</section>
+
+
+
+<!-- WHY US + RESULTS -->
+<section class="why-section">
+  <div class="why-grid">
+    <div>
+      <div class="section-tag reveal">// Why Choose Us</div>
+      <h2 class="section-title reveal">The Genius Mind <span class="text-gold">Difference</span></h2>
+      <div class="why-features">
+        <div class="why-feature reveal"><div class="feature-icon-wrap">🎓</div><div><h4>Expert & Dedicated Faculty</h4><p>4 subject specialists with 10+ years combined experience, focused on conceptual learning.</p></div></div>
+        <div class="why-feature reveal"><div class="feature-icon-wrap">📋</div><div><h4>Regular Tests & Assessments</h4><p>Weekly tests, monthly mock exams, and detailed performance reports to track every student.</p></div></div>
+        <div class="why-feature reveal"><div class="feature-icon-wrap">🧑‍🤝‍🧑</div><div><h4>Small Batch Size</h4><p>Limited seats ensure personalised attention and a focused learning environment.</p></div></div>
+        <div class="why-feature reveal"><div class="feature-icon-wrap">📞</div><div><h4>Parent–Faculty Connect</h4><p>Regular parent meetings and transparent progress updates every month.</p></div></div>
+        <div class="why-feature reveal"><div class="feature-icon-wrap">📚</div><div><h4>Study Material Provided</h4><p>Curated notes, practice sheets, and previous year question papers — all included.</p></div></div>
+      </div>
+    </div>
+    <div class="why-visual reveal">
+      <div class="results-title">🏆 Student Results Snapshot</div>
+      <div class="result-row"><div class="result-info"><div class="result-avatar">👩‍🎓</div><div><div class="result-name">Priya Sharma</div><div class="result-class">HSC Science • 2025</div><div class="result-bar-wrap"><div class="result-bar" style="width:0%" data-width="96%"></div></div></div></div><div class="result-percent">96%</div></div>
+      <div class="result-row"><div class="result-info"><div class="result-avatar">👨‍🎓</div><div><div class="result-name">Rahul Patil</div><div class="result-class">HSC Science • 2025</div><div class="result-bar-wrap"><div class="result-bar" style="width:0%" data-width="93%"></div></div></div></div><div class="result-percent">93%</div></div>
+      <div class="result-row"><div class="result-info"><div class="result-avatar">👧</div><div><div class="result-name">Sneha Kulkarni</div><div class="result-class">SSC Board • 2025</div><div class="result-bar-wrap"><div class="result-bar" style="width:0%" data-width="91%"></div></div></div></div><div class="result-percent">91%</div></div>
+      <div class="result-row"><div class="result-info"><div class="result-avatar">👦</div><div><div class="result-name">Arjun Desai</div><div class="result-class">HSC Commerce • 2025</div><div class="result-bar-wrap"><div class="result-bar" style="width:0%" data-width="89%"></div></div></div></div><div class="result-percent">89%</div></div>
+      <div class="result-row"><div class="result-info"><div class="result-avatar">👩</div><div><div class="result-name">Aisha Khan</div><div class="result-class">HSC Science • 2025</div><div class="result-bar-wrap"><div class="result-bar" style="width:0%" data-width="95%"></div></div></div></div><div class="result-percent">95%</div></div>
+      <p style="font-size:0.7rem;color:var(--muted);text-align:center;margin-top:0.5rem;font-style:italic;">📸 Add student photos with permission</p>
+    </div>
+  </div>
+  <!-- Subject-wise avg -->
+  <div class="subject-results">
+    <div class="subj-card reveal"><div class="subj-icon">⚡</div><div class="subj-name">Physics</div><div class="subj-avg">88%</div><div class="subj-label">Batch Average</div></div>
+    <div class="subj-card reveal"><div class="subj-icon">🧪</div><div class="subj-name">Chemistry</div><div class="subj-avg">91%</div><div class="subj-label">Batch Average</div></div>
+    <div class="subj-card reveal"><div class="subj-icon">📐</div><div class="subj-name">Mathematics</div><div class="subj-avg">86%</div><div class="subj-label">Batch Average</div></div>
+    <div class="subj-card reveal"><div class="subj-icon">🌿</div><div class="subj-name">Biology</div><div class="subj-avg">93%</div><div class="subj-label">Batch Average</div></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURE 8: TRANSFORMATION CARDS
+     ═══════════════════════════════════════════ -->
+<section class="transform-section" id="transformations">
+  <div class="section-header reveal">
+    <div class="section-tag">// Success Stories</div>
+    <h2 class="section-title">Student <span class="text-gold">Transformations</span></h2>
+    <p class="section-sub">Real results from real students. See the Genius Mind difference in action.</p>
+  </div>
+  <div class="transform-grid">
+    <div class="transform-card reveal">
+      <div class="transform-header">
+        <div class="transform-avatar">👨‍🎓</div>
+        <div class="transform-info">
+          <div class="name">Rahul Patil</div>
+          <div class="class">HSC Science 2025</div>
+        </div>
+      </div>
+      <div class="transform-scores">
+        <div class="score-box">
+          <div class="label">Before GMC</div>
+          <div class="score before">62%</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="score-box">
+          <div class="label">After GMC</div>
+          <div class="score after">91%</div>
+        </div>
+      </div>
+      <div class="transform-bar-wrap"><div class="transform-bar" data-width="91%" style="width:0%"></div></div>
+      <div class="transform-quote">"Physics was my weakest subject. After joining GMC, it became my strength. The conceptual teaching method changed everything."</div>
+    </div>
+
+    <div class="transform-card reveal">
+      <div class="transform-header">
+        <div class="transform-avatar">👩‍🎓</div>
+        <div class="transform-info">
+          <div class="name">Priya Sharma</div>
+          <div class="class">HSC Science 2025</div>
+        </div>
+      </div>
+      <div class="transform-scores">
+        <div class="score-box">
+          <div class="label">Before GMC</div>
+          <div class="score before">58%</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="score-box">
+          <div class="label">After GMC</div>
+          <div class="score after">96%</div>
+        </div>
+      </div>
+      <div class="transform-bar-wrap"><div class="transform-bar" data-width="96%" style="width:0%"></div></div>
+      <div class="transform-quote">"Small batch size meant I got personal attention. Teachers identified my weak points and worked on them specifically."</div>
+    </div>
+
+    <div class="transform-card reveal">
+      <div class="transform-header">
+        <div class="transform-avatar">👧</div>
+        <div class="transform-info">
+          <div class="name">Sneha Kulkarni</div>
+          <div class="class">SSC Board 2025</div>
+        </div>
+      </div>
+      <div class="transform-scores">
+        <div class="score-box">
+          <div class="label">Before GMC</div>
+          <div class="score before">71%</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="score-box">
+          <div class="label">After GMC</div>
+          <div class="score after">91%</div>
+        </div>
+      </div>
+      <div class="transform-bar-wrap"><div class="transform-bar" data-width="91%" style="width:0%"></div></div>
+      <div class="transform-quote">"The study material and regular tests helped me stay consistent. I went from average to class topper!"</div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- FACULTY -->
+<section id="faculty">
+  <div class="section-header reveal">
+    <div class="section-tag">// Our Faculty</div>
+    <h2 class="section-title">Meet Your <span class="text-gold">Mentors</span></h2>
+    <p class="section-sub">Passionate educators with deep subject expertise and a proven track record of top scorers.</p>
+  </div>
+  <div class="faculty-grid">
+    <div class="faculty-card reveal"><div class="faculty-img"><div class="faculty-placeholder">👨‍🔬</div><p>[ Faculty Photo ]</p><div class="faculty-subject-badge">PHYSICS</div></div><div class="faculty-body"><h3>Mr. [Faculty Name]</h3><div class="faculty-degree">M.Sc. Physics • B.Ed.</div><p>Passionate Physics educator known for making complex concepts intuitive through real-world examples and problem-solving workshops.</p><div class="faculty-exp">⭐ <strong>8+ years</strong> experience · 11th & 12th specialist</div></div></div>
+    <div class="faculty-card reveal"><div class="faculty-img"><div class="faculty-placeholder">👩‍🔬</div><p>[ Faculty Photo ]</p><div class="faculty-subject-badge">CHEMISTRY</div></div><div class="faculty-body"><h3>Ms. [Faculty Name]</h3><div class="faculty-degree">M.Sc. Chemistry • B.Ed.</div><p>Expert in organic & inorganic chemistry with a unique teaching style that simplifies reactions and helps students ace numericals.</p><div class="faculty-exp">⭐ <strong>7+ years</strong> experience · HSC board specialist</div></div></div>
+    <div class="faculty-card reveal"><div class="faculty-img"><div class="faculty-placeholder">👨‍💻</div><p>[ Faculty Photo ]</p><div class="faculty-subject-badge">MATHEMATICS</div></div><div class="faculty-body"><h3>Mr. [Faculty Name]</h3><div class="faculty-degree">M.Sc. Mathematics • B.Ed.</div><p>Renowned for building strong mathematical foundations. Students report significant improvement in problem-solving speed under his guidance.</p><div class="faculty-exp">⭐ <strong>10+ years</strong> experience · 8th–12th all classes</div></div></div>
+    <div class="faculty-card reveal"><div class="faculty-img"><div class="faculty-placeholder">👩‍⚕️</div><p>[ Faculty Photo ]</p><div class="faculty-subject-badge">BIOLOGY</div></div><div class="faculty-body"><h3>Ms. [Faculty Name]</h3><div class="faculty-degree">M.Sc. Zoology/Botany • B.Ed.</div><p>Makes Biology engaging with diagram-based learning, mnemonic techniques, and thorough NCERT coverage for board exams.</p><div class="faculty-exp">⭐ <strong>6+ years</strong> experience · 11th & 12th specialist</div></div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-header reveal">
+    <div class="section-tag">// Student Success Stories</div>
+    <h2 class="section-title">Heard it From <span class="text-gold">Our Students</span></h2>
+    <p class="section-sub">Real stories from students who transformed their academic journey at GMC.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal"><div class="quote-mark">"</div><div class="stars">★★★★★</div><p>Joining Genius Mind Classes was the best decision of my academic life. The Physics teacher explains each concept so clearly — I went from 62% to 91% in just one year!</p><div class="testimonial-meta"><div class="t-avatar">👩‍🎓</div><div><div class="t-name">[Student Name]</div><div class="t-detail">HSC Science 2025 — 91%</div><div class="photo-placeholder">📸 Add photo with permission</div></div></div></div>
+    <div class="testimonial-card reveal"><div class="quote-mark">"</div><div class="stars">★★★★★</div><p>The small batch size made a huge difference. Teachers know each student personally and the regular mock tests helped me manage exam pressure brilliantly.</p><div class="testimonial-meta"><div class="t-avatar">👨‍🎓</div><div><div class="t-name">[Student Name]</div><div class="t-detail">SSC Board 2025 — 89%</div><div class="photo-placeholder">📸 Add photo with permission</div></div></div></div>
+    <div class="testimonial-card reveal"><div class="quote-mark">"</div><div class="stars">★★★★★</div><p>Chemistry used to scare me but after joining GMC's 11th batch, it became my strongest subject. The notes are so well-structured — revision became effortless.</p><div class="testimonial-meta"><div class="t-avatar">👧</div><div><div class="t-name">[Student Name]</div><div class="t-detail">HSC Science 2025 — 94%</div><div class="photo-placeholder">📸 Add photo with permission</div></div></div></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <div class="section-tag">// Our Institute</div>
+    <h2 class="section-title">A Glimpse of <span class="text-gold">Life at GMC</span></h2>
+    <p class="section-sub">The classroom environment, learning culture, and student moments that make us special.</p>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item"><div class="gallery-emoji">🏫</div><div class="gallery-label">Replace with classroom / institute photo</div></div>
+    <div class="gallery-item"><div class="gallery-emoji">📚</div><div class="gallery-label">Study session photo</div></div>
+    <div class="gallery-item"><div class="gallery-emoji">🏆</div><div class="gallery-label">Result celebration / toppers</div></div>
+    <div class="gallery-item"><div class="gallery-emoji">👩‍🏫</div><div class="gallery-label">Faculty teaching photo</div></div>
+    <div class="gallery-item"><div class="gallery-emoji">🎉</div><div class="gallery-label">Student achievement / prize</div></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-header reveal">
+    <div class="section-tag">// FAQ</div>
+    <h2 class="section-title">Frequently Asked <span class="text-gold">Questions</span></h2>
+    <p class="section-sub">Everything parents and students want to know before enrolling.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">When do batches start for 2026–27?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">New batches for the 2026–27 academic year begin in [Month]. We recommend enrolling early as seats fill up quickly, especially for 11th and 12th Science batches.</div></div></div>
+    <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">Is there a registration fee to join?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">There is no registration fee. You only pay the monthly tuition fee after attending a free demo class and confirming your enrollment.</div></div></div>
+    <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">Can I attend a demo class before enrolling?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Absolutely! We offer a free demo class for all programs. Fill out the enquiry form and our team will schedule a demo at your preferred batch timing.</div></div></div>
+    <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">What is the batch size per class?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">We maintain small batches of 15–20 students to ensure every student receives individual attention from the faculty.</div></div></div>
+    <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">What study material is provided?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">All students receive curated printed notes, practice worksheets, and previous year board exam question papers. This is included in the tuition fee at no extra cost.</div></div></div>
+    <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">How are parents kept informed about progress?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">We conduct monthly parent-teacher meetings and share performance reports after every test. Parents can also contact the faculty directly via WhatsApp for updates.</div></div></div>
+    <div class="faq-item reveal"><div class="faq-q" onclick="toggleFaq(this)">Are fees paid monthly or in advance?<span class="faq-icon">+</span></div><div class="faq-a"><div class="faq-a-inner">Fees can be paid monthly, quarterly, or for the full year. Discounts are available on quarterly and yearly payments. Sibling discount is also provided.</div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+
+
+
+<!-- ═══════════════════════════════════════════
+     FEATURE 7: SPIN WHEEL
+     ═══════════════════════════════════════════ -->
+<section class="wheel-section" id="wheel" style="padding:4rem 5%;">
+  <div class="section-header reveal">
+    <div class="section-tag">// Spin & Win</div>
+    <h2 class="section-title">Spin the <span class="text-gold">Wheel</span></h2>
+    <p class="section-sub">Try your luck! Spin the wheel and win exclusive discounts on admission.</p>
+  </div>
+  <div class="wheel-container reveal">
+    <div class="wheel-pointer"></div>
+    <div class="wheel-outer" id="wheelOuter" style="background:conic-gradient(
+      #F5A623 0deg 60deg,
+      #3B82F6 60deg 120deg,
+      #22c55e 120deg 180deg,
+      #ec4899 180deg 240deg,
+      #06B6D4 240deg 300deg,
+      #FFD166 300deg 360deg
+    );">
+    </div>
+    <div class="wheel-center">🎡</div>
+  </div>
+  <div style="display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+    <span style="font-size:0.75rem;color:var(--muted);"><span style="color:#F5A623;">●</span> 5% Off</span>
+    <span style="font-size:0.75rem;color:var(--muted);"><span style="color:#3B82F6;">●</span> 10% Off</span>
+    <span style="font-size:0.75rem;color:var(--muted);"><span style="color:#22c55e;">●</span> 15% Off</span>
+    <span style="font-size:0.75rem;color:var(--muted);"><span style="color:#ec4899;">●</span> 20% Off</span>
+    <span style="font-size:0.75rem;color:var(--muted);"><span style="color:#06B6D4;">●</span> Free Notes</span>
+    <span style="font-size:0.75rem;color:var(--muted);"><span style="color:#FFD166;">●</span> Demo Class</span>
+  </div>
+  <button class="wheel-btn" id="spinBtn" onclick="spinWheel()">SPIN NOW</button>
+  <div class="wheel-result" id="wheelResult"></div>
+</section>
+
+<section class="cta-section">
+  <div style="position:relative;z-index:1">
+    <div class="section-tag" style="display:inline-block;margin-bottom:1rem">// Admissions Open</div>
+    <h2 class="section-title reveal">Don't Miss This <span class="text-gold">Academic Year!</span></h2>
+    <p class="reveal" style="color:var(--muted);max-width:500px;margin:0 auto 2.5rem;line-height:1.7;">Seats are limited per batch. Enrol your child at Genius Mind Classes today and invest in a brighter future.</p>
+    <div class="cta-buttons reveal">
+      <a href="#contact" class="btn-primary">📋 Register Now →</a>
+      <a href="https://wa.me/919595194355?text=Hello%2C+I+want+to+know+about+admissions." class="btn-outline" target="_blank">💬 WhatsApp Us</a>
+    </div>
+    <p class="cta-note reveal">✅ Free Demo Class &nbsp;·&nbsp; ✅ No Registration Fee &nbsp;·&nbsp; ✅ Flexible Batch Timings</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header reveal">
+    <div class="section-tag">// Contact Us</div>
+    <h2 class="section-title">Get in <span class="text-gold">Touch</span></h2>
+    <p class="section-sub">Fill the form and our team will reach out within 24 hours. Walk-in visits are welcome!</p>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <div class="contact-item reveal"><div class="contact-icon">📍</div><div><h4>Address</h4><p>[Full Address, Village/Town, District, Maharashtra]</p></div></div>
+      <div class="contact-item reveal"><div class="contact-icon">📞</div><div><h4>Phone / WhatsApp</h4><p>+91 95951 94355<br>Available Mon–Sat, 9am–7pm</p></div></div>
+      <div class="contact-item reveal"><div class="contact-icon">🕐</div><div><h4>Batch Timings</h4><p>Morning: 7:00 AM – 9:00 AM<br>Evening: 5:00 PM – 8:00 PM</p></div></div>
+      <div class="contact-item reveal"><div class="contact-icon">📅</div><div><h4>Free Demo Class</h4><p>Available on request. Visit us and experience the Genius Mind way!</p></div></div>
+      <!-- MAP PLACEHOLDER -->
+      <div class="map-wrap reveal">
+        <div class="map-placeholder">
+          <div style="font-size:2rem">📍</div>
+          <p>Replace with Google Maps embed<br><span style="font-size:0.7rem;opacity:0.6;">Paste &lt;iframe&gt; from Google Maps here</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <h3>📋 Admission Enquiry Form</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Student Name *</label><input id="f-student" type="text" placeholder="Enter full name"></div>
+        <div class="form-group"><label>Parent/Guardian Name *</label><input id="f-parent" type="text" placeholder="Enter name"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Mobile Number *</label><input id="f-mobile" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="form-group"><label>Interested Class *</label>
+          <select id="f-class">
+            <option value="">Select Class</option>
+            <option>Class 8th</option><option>Class 9th</option><option>Class 10th (SSC)</option>
+            <option>Class 11th – Science</option><option>Class 11th – Commerce</option>
+            <option>Class 12th – Science</option><option>Class 12th – Commerce</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Preferred Batch</label>
+        <select id="f-batch">
+          <option value="">Select Batch</option>
+          <option>Morning Batch (7AM–9AM)</option><option>Evening Batch (5PM–7PM)</option><option>Evening Batch (6PM–8PM)</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message / Query (Optional)</label><textarea id="f-msg" placeholder="Any specific requirements or questions..."></textarea></div>
+      <button class="btn-form" onclick="handleSubmit(this)">Submit Enquiry → WhatsApp 📲</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><h2>Genius Mind <span>Classes</span></h2><p>Nurturing young minds and building tomorrow's leaders through quality education and dedicated coaching.</p></div>
+    <div><h4>Quick Links</h4><ul><li><a href="#programs">Programs</a></li><li><a href="#fees">Fee Structure</a></li><li><a href="#schedule">Batch Schedule</a></li><li><a href="#faculty">Faculty</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Admissions</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="tel:+919595194355">📞 +91 95951 94355</a></li><li><a href="https://wa.me/919595194355" target="_blank">💬 WhatsApp Us</a></li><li><a href="#contact">📍 [Location, Maharashtra]</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Genius Mind Classes. All rights reserved.</span><span>Made with ❤️ for brighter futures</span></div>
+</footer>
+
+<script>
+// ── SCROLL REVEAL ──
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);io.unobserve(e.target);}
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// ── ANIMATED COUNTERS ──
+const counterObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target, target=+el.dataset.target, suffix=el.nextSibling?'':'';
+      let start=0, dur=1800;
+      const step=()=>{
+        start+=Math.ceil(target/60);
+        if(start>=target){el.textContent=target;return;}
+        el.textContent=start; requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+      counterObs.unobserve(el);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('.counter').forEach(el=>counterObs.observe(el));
+
+// ── RESULT BARS ANIMATE ──
+const barObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.result-bar').forEach(bar=>{
+        setTimeout(()=>bar.style.width=bar.dataset.width,300);
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+const whyVis=document.querySelector('.why-visual');
+if(whyVis) barObs.observe(whyVis);
+
+// ── COUNTDOWN TIMER ──
+function updateCountdown(){
+  const deadline = new Date('2026-07-31T23:59:59');
+  const now = new Date();
+  const diff = deadline - now;
+  if(diff<=0){document.querySelector('.countdown-bar').innerHTML='<span style="color:var(--gold);font-weight:700;">🎓 Admissions Now Closed for 2026–27</span>';return;}
+  const d=Math.floor(diff/86400000), h=Math.floor((diff%86400000)/3600000), m=Math.floor((diff%3600000)/60000), s=Math.floor((diff%60000)/1000);
+  document.getElementById('cd-days').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+
+// ── BATCH TABS ──
+function switchTab(btn,id){
+  document.querySelectorAll('.batch-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  ['science','commerce','foundation'].forEach(t=>{
+    const el=document.getElementById('tab-'+t);
+    if(el) el.style.display = t===id?'block':'none';
+  });
+}
+
+// ── FAQ ──
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen) item.classList.add('open');
+}
+
+// ── FORM → WHATSAPP ──
+function handleSubmit(btn){
+  const student=document.getElementById('f-student').value.trim();
+  const parent=document.getElementById('f-parent').value.trim();
+  const mobile=document.getElementById('f-mobile').value.trim();
+  const cls=document.getElementById('f-class').value.trim();
+  const batch=document.getElementById('f-batch').value.trim();
+  const msg=document.getElementById('f-msg').value.trim();
+  if(!student){alert('Please enter Student Name');return;}
+  if(!parent){alert('Please enter Parent/Guardian Name');return;}
+  if(!mobile){alert('Please enter Mobile Number');return;}
+  if(!cls){alert('Please select Interested Class');return;}
+  const now=new Date().toLocaleString('en-IN',{timeZone:'Asia/Kolkata'});
+  const text=
+    `🎓 *New Admission Enquiry — Genius Mind Classes*\n`+
+    `━━━━━━━━━━━━━━━━━━━━━━\n`+
+    `👦 *Student Name:* ${student}\n`+
+    `👨‍👩‍👦 *Parent/Guardian:* ${parent}\n`+
+    `📞 *Mobile Number:* ${mobile}\n`+
+    `📚 *Interested Class:* ${cls}\n`+
+    (batch?`⏰ *Preferred Batch:* ${batch}\n`:``)+
+    (msg?`💬 *Message:* ${msg}\n`:``)+
+    `━━━━━━━━━━━━━━━━━━━━━━\n`+
+    `🕐 *Submitted:* ${now}\n`+
+    `📍 *Source:* Website Enquiry Form`;
+  window.open(`https://wa.me/919595194355?text=${encodeURIComponent(text)}`,'_blank');
+  btn.textContent='✅ Opening WhatsApp...';btn.style.background='#22c55e';btn.style.color='#fff';btn.disabled=true;
+  setTimeout(()=>{
+    btn.innerHTML='Submit Enquiry → WhatsApp 📲';btn.style.background='';btn.style.color='';btn.disabled=false;
+    ['f-student','f-parent','f-mobile','f-class','f-batch','f-msg'].forEach(id=>{document.getElementById(id).value='';});
+  },3000);
+}
+
+// ── MOBILE NAV ──
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.querySelector('.nav-links');
+let mobileOpen=false;
+if(hamburger&&navLinks){
+  hamburger.addEventListener('click',()=>{
+    mobileOpen=!mobileOpen;
+    if(mobileOpen){
+      navLinks.style.cssText='display:flex;flex-direction:column;position:fixed;top:65px;left:0;right:0;background:rgba(10,14,26,0.98);padding:1.5rem 2rem 2rem;border-bottom:1px solid rgba(245,166,35,0.2);gap:1.2rem;z-index:199;';
+      if(!document.getElementById('mob-enroll')){
+        const li=document.createElement('li');li.id='mob-enroll';
+        li.innerHTML='<a href="#contact" style="display:block;text-align:center;background:#F5A623;color:#0A0E1A;padding:0.8rem;border-radius:8px;font-weight:700;">Enroll Now →</a>';
+        navLinks.appendChild(li);
+      }
+    } else {navLinks.style.display='none';}
+  });
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navLinks.style.display='none';mobileOpen=false;}));
+}
+
+// ── EXIT INTENT POPUP ──
+let popupShown=false;
+document.addEventListener('mouseleave',(e)=>{
+  if(e.clientY<0&&!popupShown){showPopup();}
+});
+// Mobile: show after 45s of inactivity
+let idleTimer=setTimeout(()=>{if(!popupShown)showPopup();},45000);
+document.addEventListener('touchstart',()=>{clearTimeout(idleTimer);idleTimer=setTimeout(()=>{if(!popupShown)showPopup();},45000);});
+function showPopup(){popupShown=true;document.getElementById('exitPopup').classList.add('show');}
+function closePopup(){document.getElementById('exitPopup').classList.remove('show');}
+document.getElementById('exitPopup').addEventListener('click',(e)=>{if(e.target===e.currentTarget)closePopup();});
+
+
+
+// ═══════════════════════════════════════════
+// NEW PRO FEATURES JAVASCRIPT
+// ═══════════════════════════════════════════
+
+// ── FEATURE 1: LEAD CAPTURE MODAL ──
+let leadShown = false;
+function showLeadModal() {
+  if(leadShown) return;
+  leadShown = true;
+  document.getElementById('leadModal').classList.add('show');
+}
+function closeLeadModal() {
+  document.getElementById('leadModal').classList.remove('show');
+}
+function sendLead() {
+  const phone = document.getElementById('leadPhone').value.trim();
+  if(phone.length < 10) { alert('Please enter a valid 10-digit WhatsApp number'); return; }
+  const text = `📚 *Free Notes Request*\nPhone: ${phone}\nNotes: SSC Science Complete\nTime: ${new Date().toLocaleString('en-IN')}`;
+  window.open(`https://wa.me/919595194355?text=${encodeURIComponent(text)}`, '_blank');
+  closeLeadModal();
+  alert('✅ Notes request sent! Check your WhatsApp.');
+}
+// Show after 15 seconds OR scroll 50%
+setTimeout(() => { if(!leadShown) showLeadModal(); }, 15000);
+window.addEventListener('scroll', () => {
+  if(!leadShown && window.scrollY > document.body.scrollHeight * 0.5) showLeadModal();
+}, {once: true});
+
+// ── FEATURE 2: SCHOLARSHIP TEST COUNTDOWN ──
+function updateScholarCountdown() {
+  const deadline = new Date('2026-06-30T09:00:00');
+  const now = new Date();
+  const diff = deadline - now;
+  if(diff <= 0) {
+    document.getElementById('sch-days').textContent = '0';
+    document.getElementById('sch-cd-days').textContent = '00';
+    document.getElementById('sch-cd-hours').textContent = '00';
+    document.getElementById('sch-cd-mins').textContent = '00';
+    document.getElementById('sch-cd-secs').textContent = '00';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('sch-days').textContent = d;
+  document.getElementById('sch-cd-days').textContent = String(d).padStart(2,'0');
+  document.getElementById('sch-cd-hours').textContent = String(h).padStart(2,'0');
+  document.getElementById('sch-cd-mins').textContent = String(m).padStart(2,'0');
+  document.getElementById('sch-cd-secs').textContent = String(s).padStart(2,'0');
+}
+updateScholarCountdown();
+setInterval(updateScholarCountdown, 1000);
+// Random seats on page load
+const baseSeats = 15;
+const randomTaken = Math.floor(Math.random() * 8);
+document.getElementById('sch-seats').textContent = baseSeats - randomTaken;
+
+// ── FEATURE 3: RESULT PREDICTOR ──
+function updatePrediction() {
+  const current = parseInt(document.getElementById('marksSlider').value);
+  const predicted = Math.min(current + 23, 96);
+  document.getElementById('sliderVal').textContent = current + '%';
+  document.getElementById('beforeMarks').textContent = current + '%';
+  document.getElementById('afterMarks').textContent = predicted + '%';
+  document.getElementById('improvement').textContent = predicted - current;
+}
+updatePrediction();
+
+// ── FEATURE 4: SOCIAL PROOF TICKER ──
+const tickerData = [
+  {name:'Rahul P.', action:'enrolled for 11th Science', time:'2 min ago'},
+  {name:'Sneha K.', action:'registered for Scholarship Test', time:'5 min ago'},
+  {name:'Arjun D.', action:'enrolled for 12th Commerce', time:'8 min ago'},
+  {name:'Priya S.', action:'downloaded Free Notes', time:'12 min ago'},
+  {name:'Aisha K.', action:'enrolled for 10th SSC', time:'15 min ago'},
+  {name:'Vikram M.', action:'booked Demo Class', time:'18 min ago'},
+  {name:'Neha R.', action:'enrolled for 11th Science', time:'22 min ago'},
+  {name:'Rohan S.', action:'registered for Scholarship Test', time:'25 min ago'}
+];
+let tickerIndex = 0;
+let tickerTimer = null;
+
+function showTicker() {
+  const ticker = document.getElementById('socialTicker');
+  const data = tickerData[tickerIndex % tickerData.length];
+  document.getElementById('tickerName').textContent = data.name;
+  ticker.querySelector('.action').textContent = data.action;
+  ticker.querySelector('.time').textContent = data.time;
+  ticker.classList.add('show');
+  tickerIndex++;
+
+  setTimeout(() => {
+    ticker.classList.remove('show');
+  }, 4000);
+}
+
+function closeTicker() {
+  document.getElementById('socialTicker').classList.remove('show');
+  clearTimeout(tickerTimer);
+}
+
+function scheduleTicker() {
+  const delay = 25000 + Math.random() * 15000;
+  tickerTimer = setTimeout(() => {
+    showTicker();
+    scheduleTicker();
+  }, delay);
+}
+setTimeout(scheduleTicker, 10000);
+
+// ── FEATURE 5: MARATHI LANGUAGE TOGGLE ──
+let isMarathi = false;
+function toggleLang() {
+  isMarathi = !isMarathi;
+  const btn = document.getElementById('langBtn');
+  const body = document.body;
+
+  if(isMarathi) {
+    btn.textContent = 'English';
+    btn.classList.add('active');
+    body.classList.add('lang-marathi');
+  } else {
+    btn.textContent = 'मराठी';
+    btn.classList.remove('active');
+    body.classList.remove('lang-marathi');
+  }
+}
+
+// ── FEATURE 6: TIMETABLE (static, no JS needed) ──
+// Already rendered in HTML
+
+// ── FEATURE 7: SPIN WHEEL ──
+const wheelPrizes = ['5% Off', '10% Off', '15% Off', '20% Off', 'Free Notes', 'Free Demo Class'];
+let wheelSpun = sessionStorage.getItem('wheelSpun') === 'true';
+
+if(wheelSpun) {
+  document.getElementById('spinBtn').disabled = true;
+  document.getElementById('spinBtn').textContent = 'Already Spun!';
+}
+
+function spinWheel() {
+  if(wheelSpun) return;
+
+  const btn = document.getElementById('spinBtn');
+  const wheel = document.getElementById('wheelOuter');
+  const result = document.getElementById('wheelResult');
+
+  btn.disabled = true;
+
+  // Random rotation between 1800 and 3600 degrees (5-10 full spins)
+  const randomDeg = 1800 + Math.floor(Math.random() * 1800);
+  wheel.style.setProperty('--spin-deg', randomDeg + 'deg');
+  wheel.classList.add('spinning');
+
+  setTimeout(() => {
+    const prizeIndex = Math.floor(Math.random() * wheelPrizes.length);
+    const prize = wheelPrizes[prizeIndex];
+
+    result.innerHTML = `
+      <div class="prize">🎉 You won: ${prize}!</div>
+      <div>Claim your prize now</div>
+      <a href="#" class="claim-btn" onclick="claimPrize('${prize}'); return false;">Claim on WhatsApp →</a>
+    `;
+
+    wheelSpun = true;
+    sessionStorage.setItem('wheelSpun', 'true');
+    btn.textContent = 'Already Spun!';
+  }, 4000);
+}
+
+function claimPrize(prize) {
+  const text = `🎡 *Spin Wheel Winner!*\nPrize: ${prize}\nTime: ${new Date().toLocaleString('en-IN')}\nClaim: Yes, I want to claim my prize!`;
+  window.open(`https://wa.me/919595194355?text=${encodeURIComponent(text)}`, '_blank');
+}
+
+// ── FEATURE 8: TRANSFORMATION BARS ANIMATION ──
+const transformObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.querySelectorAll('.transform-bar').forEach(bar => {
+        setTimeout(() => bar.style.width = bar.dataset.width, 300);
+      });
+      transformObs.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.3});
+
+document.querySelectorAll('.transform-grid').forEach(grid => {
+  transformObs.observe(grid);
+});
+
+</script>
+</body>
+</html>
