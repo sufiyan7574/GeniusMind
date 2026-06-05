@@ -402,10 +402,6 @@ footer ul a:hover{color:var(--gold);}
 .lang-toggle{background:var(--card);border:1px solid var(--border);color:var(--gold);padding:0.4rem 0.9rem;border-radius:6px;font-size:0.8rem;font-weight:700;cursor:pointer;transition:0.2s;font-family:'DM Sans',sans-serif;margin-left:1rem;}
 .lang-toggle:hover{background:rgba(245,166,35,0.1);border-color:rgba(245,166,35,0.4);}
 .lang-toggle.active{background:var(--gold);color:var(--navy);}
-[data-mr]{opacity:0;position:absolute;pointer-events:none;transition:opacity 0.3s;}
-.lang-marathi [data-en]{opacity:0;position:absolute;pointer-events:none;}
-.lang-marathi [data-mr]{opacity:1;position:static;pointer-events:auto;}
-.lang-marathi .section-tag,.lang-marathi .section-title,.lang-marathi .section-sub{opacity:1;position:static;}
 
 /* ── FEATURE 6: VISUAL TIMETABLE ── */
 .timetable-section{background:var(--deep);}
@@ -1448,20 +1444,262 @@ setTimeout(scheduleTicker, 10000);
 
 // ── FEATURE 5: MARATHI LANGUAGE TOGGLE ──
 let isMarathi = false;
+
+// Translation dictionary - English to Marathi
+const translations = {
+  // Hero section
+  "Where Potential Meets": "जिथे क्षमता भेटते",
+  "Purpose.": "ध्येयाला.",
+  "Genius Mind Classes is a premier coaching institute for Class 8th–12th students, with specialised focus on Science & Commerce for Board Exams.": "जीनियस माइंड क्लासेस ही इयत्ता ८वी ते १२वीच्या विद्यार्थ्यांसाठी एक अग्रगण्य कोचिंग संस्था आहे, जी बोर्ड परीक्षांसाठी विज्ञान आणि वाणिज्यवर विशेष लक्ष केंद्रित करते.",
+  "Enroll Now": "प्रवेश घ्या",
+  "View Programs": "प्रोग्राम पहा",
+  "% Board Result Rate": "% बोर्ड निकाल दर",
+  "+ Students Coached": "+ विद्यार्थी प्रशिक्षित",
+  "Expert Faculty": "तज्ञ फॅकल्टी",
+  "+ Years Excellence": "+ वर्षे उत्कृष्टता",
+
+  // Nav
+  "Programs": "प्रोग्राम",
+  "Fees": "फी",
+  "Faculty": "फॅकल्टी",
+  "Reviews": "पुनरावलोकने",
+  "FAQ": "सामान्य प्रश्न",
+  "Contact": "संपर्क",
+
+  // Section titles
+  "Courses We": "आम्ही देत असलेले",
+  "Offer": "कोर्सेस",
+  "Transparent": "पारदर्शक",
+  "Pricing": "किंमत",
+  "Choose Your": "तुमचा",
+  "Batch": "बॅच निवडा",
+  "The Genius Mind": "जीनियस माइंडचा",
+  "Difference": "फरक",
+  "Meet Your": "तुमच्या",
+  "Mentors": "मार्गदर्शकांशी भेटा",
+  "Heard it From": "आमच्या विद्यार्थ्यांकडून",
+  "Our Students": "ऐका",
+  "A Glimpse of": "जीएमसीमधील",
+  "Life at GMC": "जीवनाची एक झलक",
+  "Frequently Asked": "वारंवार विचारले जाणारे",
+  "Questions": "प्रश्न",
+  "Don't Miss This": "हा",
+  "Academic Year!": "शैक्षणिक वर्ष चुकवू नका!",
+  "Get in": "संपर्कात",
+  "Touch": "रहा",
+
+  // CTA buttons
+  "Enquire Now": "आता चौकशी करा",
+  "Register Now": "आता नोंदणी करा",
+  "WhatsApp Us": "व्हॉट्सअ‍ॅप करा",
+  "Submit Enquiry": "चौकशी सबमिट करा",
+
+  // Common
+  "Admissions Open 2026–27": "प्रवेश सुरू २०२६-२७",
+  "Limited Seats Available!": "मर्यादित जागा उपलब्ध!",
+  "Secure Your Seat": "तुमची जागा सुरक्षित करा",
+  "Free Demo Class": "मोफत डेमो क्लास",
+  "No Registration Fee": "कोणतीही नोंदणी शुल्क नाही",
+  "Flexible Batch Timings": "लवचिक बॅच वेळा",
+  "Call for exact fee details": "अचूक फी तपशीलासाठी कॉल करा",
+  "Sibling discounts available": "भावंडांना सूट उपलब्ध",
+  "Quarterly & yearly payment options": "त्रैमासिक आणि वार्षिक पेमेंट पर्याय",
+
+  // Programs
+  "Foundation Program": "फाउंडेशन प्रोग्राम",
+  "Science Stream": "विज्ञान शाखा",
+  "Commerce Stream": "वाणिज्य शाखा",
+  "Board Exam Intensive": "बोर्ड परीक्षा इंटेन्सिव्ह",
+  "Rock-solid academic base with concept clarity, regular tests, and personalised guidance.": "संकल्पना स्पष्टतेसह खडकासारखा शैक्षणिक पाया, नियमित चाचण्या आणि वैयक्तिक मार्गदर्शन.",
+  "Intensive HSC preparation with subject specialists. Conceptual depth + exam strategy.": "विषय तज्ञांसोबत गहन HSC तयारी. संकल्पनात्मक खोली + परीक्षा रणनीती.",
+  "Comprehensive HSC Commerce coaching with in-depth coverage of all key subjects.": "सर्व महत्त्वाच्या विषयांच्या सखोल व्याप्तीसह व्यापक HSC वाणिज्य कोचिंग.",
+  "High-impact revision for 10th & 12th — focused on high-weightage chapters and past papers.": "इयत्ता १० वी आणि १२ वीसाठी उच्च प्रभावी पुनरावृत्ती — उच्च वेटेज असलेल्या धड्यांवर आणि मागील पेपर्सवर लक्ष केंद्रित.",
+
+  // Fee section
+  "Foundation": "फाउंडेशन",
+  "Board Prep": "बोर्ड तयारी",
+  "Science / Commerce": "विज्ञान / वाणिज्य",
+  "Crash Course": "क्रॅश कोर्स",
+  "All Subjects Covered": "सर्व विषय समाविष्ट",
+  "Weekly Tests Included": "साप्ताहिक चाचण्या समाविष्ट",
+  "Study Material Provided": "अभ्यास साहित्य पुरवले",
+  "Parent Progress Reports": "पालक प्रगती अहवाल",
+  "All Subjects + Board Focus": "सर्व विषय + बोर्ड फोकस",
+  "Monthly Mock Tests": "मासिक मॉक टेस्ट",
+  "Previous Year Papers": "मागील वर्षाचे पेपर्स",
+  "Doubt Sessions": "शंका निवारण सत्रे",
+  "Subject-Wise Specialist Faculty": "विषयनिहाय तज्ञ फॅकल्टी",
+  "Weekly + Monthly Tests": "साप्ताहिक + मासिक चाचण्या",
+  "Complete Study Material": "संपूर्ण अभ्यास साहित्य",
+  "Board Exam Strategy": "बोर्ड परीक्षा रणनीती",
+  "30-Day Intensive Revision": "३०-दिवसीय गहन पुनरावृत्ती",
+  "High-Weightage Topics": "उच्च वेटेज विषय",
+  "Past 5 Year Papers": "मागील ५ वर्षांचे पेपर्स",
+  "Exam Tips & Tricks": "परीक्षा टिप्स आणि ट्रिक्स",
+
+  // Why us
+  "Expert & Dedicated Faculty": "तज्ञ आणि समर्पित फॅकल्टी",
+  "4 subject specialists with 10+ years combined experience, focused on conceptual learning.": "संकल्पनात्मक शिक्षणावर लक्ष केंद्रित करून १०+ वर्षांचा एकत्रित अनुभव असलेले ४ विषय तज्ञ.",
+  "Regular Tests & Assessments": "नियमित चाचण्या आणि मूल्यांकन",
+  "Weekly tests, monthly mock exams, and detailed performance reports to track every student.": "साप्ताहिक चाचण्या, मासिक मॉक परीक्षा आणि प्रत्येक विद्यार्थ्याचा मागोवा घेण्यासाठी तपशीलवार कामगिरी अहवाल.",
+  "Small Batch Size": "लहान बॅच आकार",
+  "Limited seats ensure personalised attention and a focused learning environment.": "मर्यादित जागा वैयक्तिक लक्ष आणि केंद्रित शिक्षण वातावरण सुनिश्चित करतात.",
+  "Parent–Faculty Connect": "पालक-फॅकल्टी कनेक्ट",
+  "Regular parent meetings and transparent progress updates every month.": "नियमित पालक सभा आणि दरमहा पारदर्शक प्रगती अपडेट्स.",
+  "Study Material Provided": "अभ्यास साहित्य पुरवले",
+  "Curated notes, practice sheets, and previous year question papers — all included.": "क्युरेटेड नोट्स, सराव पत्रके आणि मागील वर्षांचे प्रश्नपत्रिका — सर्व समाविष्ट.",
+  "Student Results Snapshot": "विद्यार्थी निकाल स्नॅपशॉट",
+
+  // Contact
+  "Address": "पत्ता",
+  "Phone / WhatsApp": "फोन / व्हॉट्सअ‍ॅप",
+  "Batch Timings": "बॅच वेळा",
+  "Morning": "सकाळ",
+  "Evening": "संध्याकाळ",
+  "Admission Enquiry Form": "प्रवेश चौकशी फॉर्म",
+  "Student Name": "विद्यार्थ्याचे नाव",
+  "Parent/Guardian Name": "पालक/पालकांचे नाव",
+  "Mobile Number": "मोबाईल नंबर",
+  "Interested Class": "इच्छित वर्ग",
+  "Preferred Batch": "पसंतीची बॅच",
+  "Message / Query": "संदेश / चौकशी",
+  "Any specific requirements or questions...": "कोणत्याही विशिष्ट आवश्यकता किंवा प्रश्न...",
+
+  // Footer
+  "Quick Links": "द्रुत दुवे",
+  "Nurturing young minds and building tomorrow's leaders through quality education and dedicated coaching.": "गुणवत्तापूर्ण शिक्षण आणि समर्पित कोचिंगद्वारे तरुण मने जोपासणे आणि उद्याचे नेते घडवणे.",
+  "Made with": "केलेले",
+  "for brighter futures": "उज्ज्वल भविष्यासाठी",
+
+  // New features
+  "Win Upto 50% Fee Waiver!": "५०% फी माफी जिंका!",
+  "Test your knowledge and win big discounts on admission.": "तुमचे ज्ञान तपासा आणि प्रवेशावर मोठी सूट जिंका.",
+  "Days Left": "दिवस शिल्लक",
+  "Seats Left": "जागा शिल्लक",
+  "Already registered for the test": "परीक्षेसाठी आधीच नोंदणी केलेले",
+  "Register Free for Test": "परीक्षेसाठी मोफत नोंदणी करा",
+  "See Your": "तुमची",
+  "Improvement": "सुधारणा पहा",
+  "Slide to see how much your marks can improve after joining Genius Mind Classes.": "जीनियस माइंड क्लासेसमध्ये प्रवेश घेतल्यानंतर तुमचे गुण किती सुधारू शकतात हे पाहण्यासाठी स्लाइड करा.",
+  "Marks Improvement Calculator": "गुण सुधारणा कॅल्क्युलेटर",
+  "Based on our 2024-25 batch average": "आमच्या २०२४-२५ बॅच सरासरीवर आधारित",
+  "Current Marks (%)": "सध्याचे गुण (%)",
+  "Before GMC": "जीएमसीपूर्वी",
+  "After 6 Months": "६ महिन्यांनंतर",
+  "Improvement": "सुधारणा",
+  "Based on average improvement of our 2024-25 batch students": "आमच्या २०२४-२५ बॅच विद्यार्थ्यांच्या सरासरी सुधारणेवर आधारित",
+  "Visual": "दृश्य",
+  "Timetable": "वेळापत्रक",
+  "Color-coded weekly schedule. Plan your week at a glance.": "रंग-कोडेड साप्ताहिक वेळापत्रक. एका नजरेत तुमचा आठवडा नियोजित करा.",
+  "Spin the": "चाक",
+  "Wheel": "फिरवा",
+  "Try your luck! Spin the wheel and win exclusive discounts on admission.": "तुमचे नशीब आजमावा! चाक फिरवा आणि प्रवेशावर विशेष सूट जिंका.",
+  "SPIN NOW": "आता फिरवा",
+  "You won:": "तुम्ही जिंकले:",
+  "Claim your prize now": "तुमचे बक्षीस आता दावा करा",
+  "Claim on WhatsApp": "व्हॉट्सअ‍ॅपवर दावा करा",
+  "Student": "विद्यार्थी",
+  "Transformations": "परिवर्तने",
+  "Real results from real students. See the Genius Mind difference in action.": "खऱ्या विद्यार्थ्यांकडून खरे निकाल. जीनियस माइंड फरक कृतीत पहा.",
+  "Before GMC": "जीएमसीपूर्वी",
+  "After GMC": "जीएमसीनंतर",
+  "Physics was my weakest subject. After joining GMC, it became my strength.": "भौतिकशास्त्र माझा सर्वात कमकुवत विषय होता. जीएमसीमध्ये प्रवेश घेतल्यानंतर, ते माझे बल बनले.",
+  "Small batch size meant I got personal attention.": "लहान बॅच आकारामुळे मला वैयक्तिक लक्ष मिळाले.",
+  "The study material and regular tests helped me stay consistent.": "अभ्यास साहित्य आणि नियमित चाचण्यांमुळे मी सातत्याने राहण्यास मदत झाली.",
+  "Free SSC Science Notes": "मोफत एसएससी विज्ञान नोट्स",
+  "Chapter 1-10 Complete + Important Formulas": "धडा १-१० संपूर्ण + महत्त्वाचे सूत्रे",
+  "500+ students already downloaded these notes.": "५००+ विद्यार्थ्यांनी आधीच हे नोट्स डाउनलोड केले आहेत.",
+  "Enter WhatsApp Number": "व्हॉट्सअ‍ॅप नंबर टाका",
+  "Send Notes on WhatsApp": "व्हॉट्सअ‍ॅपवर नोट्स पाठवा",
+  "No thanks, I'll skip": "नाही धन्यवाद, मी सोडतो",
+  "Admissions Now Closed for 2026–27": "२०२६-२७ साठी प्रवेश आता बंद",
+  "Admissions Open": "प्रवेश सुरू",
+
+  // Batch schedule
+  "Science (11–12)": "विज्ञान (११-१२)",
+  "Commerce (11–12)": "वाणिज्य (११-१२)",
+  "Foundation (8–10)": "फाउंडेशन (८-१०)",
+  "Morning Batch A": "सकाळी बॅच A",
+  "Evening Batch B": "संध्याकाळी बॅच B",
+  "Morning Batch": "सकाळी बॅच",
+  "Evening Batch": "संध्याकाळी बॅच",
+  "Available": "उपलब्ध",
+  "Filling Fast": "जलद भरत आहे",
+  "Full": "भरले",
+
+  // FAQ
+  "When do batches start for 2026–27?": "२०२६-२७ साठी बॅचेस केव्हा सुरू होतात?",
+  "New batches for the 2026–27 academic year begin in [Month].": "२०२६-२७ शैक्षणिक वर्षासाठी नवीन बॅचेस [महिना] मध्ये सुरू होतात.",
+  "Is there a registration fee to join?": "प्रवेशासाठी नोंदणी शुल्क आहे का?",
+  "There is no registration fee.": "कोणतेही नोंदणी शुल्क नाही.",
+  "Can I attend a demo class before enrolling?": "प्रवेश घेण्यापूर्वी मी डेमो क्लासला हजर राहू शकतो का?",
+  "Absolutely! We offer a free demo class for all programs.": "नक्कीच! आम्ही सर्व प्रोग्राम्ससाठी मोफत डेमो क्लास ऑफर करतो.",
+  "What is the batch size per class?": "प्रति वर्ग बॅच आकार काय आहे?",
+  "We maintain small batches of 15–20 students.": "आम्ही १५-२० विद्यार्थ्यांच्या लहान बॅच ठेवतो.",
+  "What study material is provided?": "कोणते अभ्यास साहित्य पुरवले जाते?",
+  "All students receive curated printed notes, practice worksheets, and previous year board exam question papers.": "सर्व विद्यार्थ्यांना क्युरेटेड प्रिंटेड नोट्स, सराव वर्कशीट्स आणि मागील वर्षांच्या बोर्ड परीक्षा प्रश्नपत्रिका मिळतात.",
+  "How are parents kept informed about progress?": "पालकांना प्रगतीबद्दल कसे माहिती दिली जाते?",
+  "We conduct monthly parent-teacher meetings and share performance reports after every test.": "आम्ही दरमहा पालक-शिक्षक बैठका घेतो आणि प्रत्येक चाचणीनंतर कामगिरी अहवाल शेअर करतो.",
+  "Are fees paid monthly or in advance?": "फी मासिक किंवा अगोदर दिली जाते का?",
+  "Fees can be paid monthly, quarterly, or for the full year.": "फी मासिक, त्रैमासिक किंवा संपूर्ण वर्षासाठी देता येते.",
+};
+
+// Store original text for reverting back
+const originalTexts = new Map();
+
 function toggleLang() {
   isMarathi = !isMarathi;
   const btn = document.getElementById('langBtn');
-  const body = document.body;
 
   if(isMarathi) {
     btn.textContent = 'English';
     btn.classList.add('active');
-    body.classList.add('lang-marathi');
+    translateToMarathi();
   } else {
     btn.textContent = 'मराठी';
     btn.classList.remove('active');
-    body.classList.remove('lang-marathi');
+    translateToEnglish();
   }
+}
+
+function translateToMarathi() {
+  // Walk through all text nodes and replace
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+  const nodesToReplace = [];
+
+  while(walker.nextNode()) {
+    const node = walker.currentNode;
+    const text = node.textContent.trim();
+    if(text && translations[text] && !node.parentElement.closest('script') && !node.parentElement.closest('style')) {
+      nodesToReplace.push({node: node, original: text, translated: translations[text]});
+    }
+  }
+
+  nodesToReplace.forEach(item => {
+    originalTexts.set(item.node, item.original);
+    item.node.textContent = item.node.textContent.replace(item.original, item.translated);
+  });
+
+  // Also handle placeholder attributes
+  document.querySelectorAll('input[placeholder], textarea[placeholder]').forEach(el => {
+    const ph = el.getAttribute('placeholder');
+    if(ph && translations[ph]) {
+      if(!originalTexts.has(el)) originalTexts.set(el, ph);
+      el.setAttribute('placeholder', translations[ph]);
+    }
+  });
+}
+
+function translateToEnglish() {
+  // Revert all translated nodes
+  originalTexts.forEach((original, nodeOrEl) => {
+    if(nodeOrEl.nodeType === Node.TEXT_NODE) {
+      nodeOrEl.textContent = original;
+    } else {
+      nodeOrEl.setAttribute('placeholder', original);
+    }
+  });
+  originalTexts.clear();
 }
 
 // ── FEATURE 6: TIMETABLE (static, no JS needed) ──
